@@ -10,5 +10,5 @@ WORKDIR /app
 COPY --from=builder /app/apps/ui/.next ./.next
 COPY --from=builder /app/apps/ui/package.json .
 RUN npm install
-EXPOSE 12012
+EXPOSE 3000
 CMD ["npm", "start"]
