@@ -42,7 +42,9 @@ export async function init(flags: {
   let language = flags.language
   if (!doesProjectExist()) {
     const shouldStartNewProject = await input({
-      message: `No setup project detected. Do you want to start a new project? (Y/${grayText("n")})`,
+      message: `No setup project detected. Do you want to start a new project? (Y/${grayText(
+        "n",
+      )})`,
       default: "Yes",
       validate: (value) => {
         const normalizedValue = value.trim().toLowerCase()
@@ -82,7 +84,9 @@ export async function init(flags: {
         "Git directory is not clean. Please stash or commit your changes before running the init command.",
       )
       info(
-        `You may use the ${highlight("--force")} flag to silence this warning and perform the initialization anyway.`,
+        `You may use the ${highlight(
+          "--force",
+        )} flag to silence this warning and perform the initialization anyway.`,
       )
       process.exit(1)
     }
@@ -173,7 +177,9 @@ export async function init(flags: {
       : "tailwind.config.ts"
     try {
       const tailwindConfigContent = fs.readFileSync(twConfigStub, "utf8")
-      fs.writeFileSync(tailwindConfigTarget, tailwindConfigContent, { flag: "w" })
+      fs.writeFileSync(tailwindConfigTarget, tailwindConfigContent, {
+        flag: "w",
+      })
     } catch (error) {
       // @ts-ignore
       spinner.fail(`Failed to write Tailwind config to ${tailwindConfigTarget}: ${error.message}`)
@@ -285,7 +291,7 @@ export async function init(flags: {
 
   const createdConfig = await configManager.createConfig(config).catch((error) => {
     // @ts-ignore
-    error("Error writing to justd.json:", error?.message)
+    error("Error writing to intelligence-ui.json:", error?.message)
     process.exit(1)
   })
 
@@ -354,20 +360,26 @@ export async function init(flags: {
   }
   spinner.succeed(`UI folder created at ${highlight(`${uiFolder}`)}`)
   spinner.succeed(
-    `Primitive file saved to ${highlight(`${uiFolder}/${getCorrectFileExtension(language, "primitive.tsx")}`)}`,
+    `Primitive file saved to ${highlight(
+      `${uiFolder}/${getCorrectFileExtension(language, "primitive.tsx")}`,
+    )}`,
   )
   if (themeProvider) {
     spinner.succeed(
-      `Theme Provider file saved to ${highlight(`"${componentFolder}/${getCorrectFileExtension(language, "theme-provider.ts")}"`)}`,
+      `Theme Provider file saved to ${highlight(
+        `"${componentFolder}/${getCorrectFileExtension(language, "theme-provider.ts")}"`,
+      )}`,
     )
     spinner.succeed(
-      `Providers file saved to ${highlight(`"${componentFolder}/${getCorrectFileExtension(language, "providers.tsx")}"`)}`,
+      `Providers file saved to ${highlight(
+        `"${componentFolder}/${getCorrectFileExtension(language, "providers.tsx")}"`,
+      )}`,
     )
   }
 
-  spinner.start(`Configuration saved to ${highlight(`"justd.json"`)}`)
+  spinner.start(`Configuration saved to ${highlight(`"intelligence-ui.json"`)}`)
   await new Promise((resolve) => setTimeout(resolve, 500))
-  spinner.succeed(`Configuration saved to ${highlight("justd.json")}`)
+  spinner.succeed(`Configuration saved to ${highlight("intelligence-ui.json")}`)
   spinner.succeed("Installation complete.")
 
   console.info("\n\nNot sure what to do next?")

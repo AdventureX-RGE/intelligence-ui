@@ -214,9 +214,11 @@ export function NavbarDropdown() {
           <span className="flex items-center gap-x-2">
             <IconBrandJustd className="-ml-1 size-4.5" />
             <span className="font-mono text-base tracking-tight sm:text-sm">{siteConfig.name}</span>
-            <Badge intent="secondary">
-              {pathname.includes("/docs/") ? pathname.split("/")[2] : siteConfig.currentVersion}
-            </Badge>
+            {/* <Badge intent="secondary">
+              {pathname.includes("/docs/")
+                ? pathname.split("/")[2]
+                : siteConfig.currentVersion}
+            </Badge> */}
           </span>
         </Button>
         <Menu.Content placement="bottom" className="sm:min-w-64">
@@ -224,10 +226,10 @@ export function NavbarDropdown() {
             <Menu.Item>
               <Menu.Label>Switch Version</Menu.Label>
             </Menu.Item>
-            <Menu.Content>
+            {/* <Menu.Content>
               <Menu.Item href="/docs/1.x/getting-started/introduction">1.x</Menu.Item>
               <Menu.Item href="/docs/2.x/getting-started/introduction">2.x</Menu.Item>
-            </Menu.Content>
+            </Menu.Content> */}
           </Menu.Submenu>
           <Menu.Section title="Pages">
             <Menu.Item href="/">
@@ -288,16 +290,25 @@ export function NavbarDropdown() {
           </Menu.Section>
         </Menu.Content>
       </Menu>
-      <Menu>
-        <Button intent="plain" className="group justify-between text-left sm:hidden">
-          {pathname.includes("/docs/") ? pathname.split("/")[2] : siteConfig.currentVersion}
+      {/* <Menu> */}
+      {/* <Button
+          intent="plain"
+          className="group justify-between text-left sm:hidden"
+        >
+          {pathname.includes("/docs/")
+            ? pathname.split("/")[2]
+            : siteConfig.currentVersion}
           <IconChevronLgDown className="size-3 duration-200 group-pressed:rotate-180" />
-        </Button>
-        <Menu.Content placement="bottom right" className="sm:min-w-10">
-          <Menu.Item href="/docs/1.x/getting-started/introduction">1.x</Menu.Item>
-          <Menu.Item href="/docs/2.x/getting-started/introduction">2.x</Menu.Item>
-        </Menu.Content>
-      </Menu>
+        </Button> */}
+      {/* <Menu.Content placement="bottom right" className="sm:min-w-10">
+          <Menu.Item href="/docs/1.x/getting-started/introduction">
+            1.x
+          </Menu.Item>
+          <Menu.Item href="/docs/2.x/getting-started/introduction">
+            2.x
+          </Menu.Item>
+        </Menu.Content> */}
+      {/* </Menu> */}
     </div>
   )
 }

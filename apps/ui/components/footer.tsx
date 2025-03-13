@@ -6,7 +6,6 @@ import { Container, Link } from "ui"
 
 const navigation = {
   starterKits: [
-    { name: "Inertia.js", href: "https://github.com/justdlabs/inertia.ts/" },
     { name: "Next.js", href: "https://next.getjustd.com/" },
     { name: "Remix", href: "https://github.com/justdlabs/remix" },
     { name: "Astro", href: "https://astro.getjustd.com/" },
@@ -122,15 +121,15 @@ export function Footer() {
       <div className="-mt-28 -mb-20 sm:-mt-32 relative z-10 flex h-[14rem] flex-col items-center justify-center overflow-hidden text-center">
         <div className="absolute h-32 w-full bg-linear-to-b sm:w-1/2 lg:w-1/4 dark:from-bg dark:via-fg dark:to-bg dark:blur-xl" />
         <strong className="relative z-10 inline-flex from-bg to-muted font-bold text-[7rem] text-fg leading-none sm:text-[10rem] dark:bg-linear-to-b dark:bg-clip-text dark:text-bg dark:[text-shadow:1px_1px_0_var(--fg),_-1px_-1px_0_var(--fg),_1px_-1px_0_var(--fg),_-1px_1px_0_var(--fg),_1px_0_0_var(--fg),_-1px_0_0_var(--fg),_0_1px_0_var(--fg),_0_-1px_0_var(--fg)]">
-          JUSTD
+          Intelligence
         </strong>
       </div>
 
       <Container className="relative z-20 space-y-1.5 border-t bg-bg py-6 text-center text-muted-fg text-sm **:[a]:font-semibold **:[a]:text-fg **:[strong]:font-semibold **:[strong]:text-fg">
         <p>
-          <strong>{siteConfig.name} &trade; 2024</strong> - This project’s crafted with{" "}
+          <strong>{siteConfig.name} &trade; 2025</strong> - This project’s crafted with{" "}
           <span className="font-[ui-sans-serif,-apple-system,system-ui] text-pink-500">♥</span> by{" "}
-          <Link href="https://twitter.com/irsyadadl">Irsyad</Link>. Peep the Source Code on{" "}
+          <Link href="https://x.com/adventurex_plan">AdventureX</Link>. Peep the Source Code on{" "}
           <Link href={siteConfig.repo}>GitHub</Link>.
         </p>
 
@@ -150,11 +149,7 @@ export function Footer() {
           .
         </p>
         <p>
-          Hosted on{" "}
-          <Link href="https://vercel.com" target="_blank">
-            Vercel
-          </Link>
-          . The source code's got the{" "}
+          The source code's got the{" "}
           <Link href="https://github.com/justdlabs/justd/blob/main/LICENSE">MIT</Link> license.
         </p>
       </Container>

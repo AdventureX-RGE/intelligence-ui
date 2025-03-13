@@ -103,7 +103,9 @@ export const diff = async (...args: string[]) => {
 
     if (!doesConfigExist) {
       spinner.fail(
-        `${warningText("justd.json not found")}. ${grayText(`Please run ${highlight("npx justd-cli@latest init")} to initialize the project.`)}`,
+        `${warningText("intelligence-ui.json not found")}. ${grayText(
+          `Please run ${highlight("npx justd-cli@latest init")} to initialize the project.`,
+        )}`,
       )
       return
     }
