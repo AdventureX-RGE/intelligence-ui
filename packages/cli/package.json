@@ -2,23 +2,17 @@
   "name": "@adventure-x/intelligence-cli",
   "type": "module",
   "version": "2.6.1",
-  "description": "The command line interface for Justd.",
+  "description": "The command line interface for Intelligence-UI.",
   "main": "dist/index.js",
   "bin": {
-    "justd": "dist/index.js"
+    "intelligence-ui": "dist/index.js"
   },
-  "files": [
-    "dist",
-    "src/resources",
-    "LICENSE",
-    "README.md",
-    "package.json"
-  ],
+  "files": ["dist", "src/resources", "LICENSE", "README.md", "package.json"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/justdlabs/cli.git"
   },
-  "homepage": "https://getjustd.com/cli",
+  "homepage": "https://ui.adventure-x.org/cli",
   "scripts": {
     "dev": "pnpm build ./src/index.ts --outdir ./dist --target=node --minify --watch",
     "start": "tsx ./src/index.ts",
@@ -32,14 +26,8 @@
     "release": "export GITHUB_TOKEN=$(cat .github_token) && release-it",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": [
-    "cli",
-    "justd cli",
-    "Justd",
-    "design-system",
-    "justd"
-  ],
-  "author": "Irsyad A. Panjaitan",
+  "keywords": ["cli", "intelligence-ui cli", "Intelligence-UI", "design-system"],
+  "author": "AdventureX",
   "license": "MIT",
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

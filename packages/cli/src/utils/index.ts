@@ -13,12 +13,12 @@ import stripJsonComments from "strip-json-comments"
 import { transform } from "sucrase"
 import { type Config, configManager } from "./config"
 
-// Get the path to the CSS file from the justd.json file
+// Get the path to the CSS file from the intelligence-ui.json file
 export async function getCSSPath() {
   const doesConfigExist = configManager.doesConfigExist()
 
   if (!doesConfigExist) {
-    error("Configuration file justd.json not found. Please run the init command first.")
+    error("Configuration file intelligence-ui.json not found. Please run the init command first.")
   }
 
   const config = await configManager.loadConfig()
@@ -121,7 +121,9 @@ export const writeCodeFile = async (
       disableESTransforms: true,
     })
 
-    fs.writeFileSync(options.writePath.replace(".ts", ".js"), results.code, { flag: "w" })
+    fs.writeFileSync(options.writePath.replace(".ts", ".js"), results.code, {
+      flag: "w",
+    })
 
     return
   }

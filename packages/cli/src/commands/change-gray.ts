@@ -36,7 +36,9 @@ export async function changeGray(
 export async function setGray(overwriteConfirmation: boolean, selectedTheme?: string) {
   if (isTailwind(3)) {
     error(
-      `This CLI supports ${highlight("Justd 2.x")}, built with ${highlight("Tailwind v4")}. However, you're currently using ${highlight("Tailwind v3")}.`,
+      `This CLI supports ${highlight("Intelligence-UI")}, built with ${highlight(
+        "Tailwind v4",
+      )}. However, you're currently using ${highlight("Tailwind v3")}.`,
     )
     process.exit(1)
   }
@@ -45,7 +47,9 @@ export async function setGray(overwriteConfirmation: boolean, selectedTheme?: st
 
   if (!doesConfigExist) {
     error(
-      `${errorText("justd.json not found")}. ${grayText(`Please run ${highlight("npx justd-cli@latest init")} to initialize the project.`)}`,
+      `${errorText("intelligence-ui.json not found")}. ${grayText(
+        `Please run ${highlight("npx justd-cli@latest init")} to initialize the project.`,
+      )}`,
     )
     process.exit(1)
   }
@@ -62,7 +66,9 @@ export async function setGray(overwriteConfirmation: boolean, selectedTheme?: st
 
   if (!overwriteConfirmation) {
     confirmOverride = await confirm({
-      message: `You will overwrite the current theme ${highlight(userConfig.gray)} with ${selectedTheme ? highlight(selectedTheme) : "others"}?`,
+      message: `You will overwrite the current theme ${highlight(
+        userConfig.gray,
+      )} with ${selectedTheme ? highlight(selectedTheme) : "others"}?`,
     })
 
     if (!confirmOverride) {

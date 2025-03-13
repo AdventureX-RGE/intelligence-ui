@@ -10,7 +10,7 @@
     "build:ui": "pnpm --filter=@adventure-x/intelligence-ui build",
     "ui": "pnpm --filter=@adventure-x/intelligence-ui dev",
     "format:ui": "pnpm --filter=@adventure-x/intelligence-ui format",
-    "format:cli": "pnpm --filter=@adventure-x/intelligence-ui format",
+    "format:cli": "pnpm --filter=@adventure-x/intelligence-cli format",
     "format:write": "pnpm --filter=@adventure-x/intelligence-ui format"
   },
   "workspaces": [

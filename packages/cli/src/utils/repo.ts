@@ -1,11 +1,10 @@
 import { availableGrays } from "@/commands/change-gray"
-import { isTailwind } from "@/utils/helpers"
 import { error } from "@/utils/logging"
 
-const REPO = "https://raw.githubusercontent.com/irsyadadl/justd"
+const REPO = "https://raw.githubusercontent.com/AdventureX-RGE/intelligence-ui"
 
-const branchWorkingOn = isTailwind(3) ? "1.x" : "2.x"
-const BRANCH = branchWorkingOn
+// const branchWorkingOn = isTailwind(3) ? "1.x" : "2.x"
+const BRANCH = "main"
 
 const THEMES_URL = `${REPO}/refs/heads/${BRANCH}/resources/styles/themes`
 /**
