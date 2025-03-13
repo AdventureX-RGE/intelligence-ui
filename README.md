@@ -16,6 +16,19 @@ Intelligence-UI 是一套轻松易用的 React 组件库，基于 [React Aria Co
 4. 基于 adventureX 的需要，进行组件样式和逻辑的调整
 5. 添加缺失的依赖
 
+本项目的基础目录结构如下
+
+```
+- apps
+  - ui：组件以及组件库的官网
+- packages
+  - cli：cli 执行
+```
+
+### 组件库开发规范
+
+这里以添加一个 button 组件为例子
+
 ### 提交规范
 
 本项目使用 husky 执行 git hooks，请你按照如下的规范进行提交

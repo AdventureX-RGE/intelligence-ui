@@ -10,8 +10,7 @@ WORKDIR /app
 COPY --from=builder /app/apps/ui/.next ./.next
 COPY --from=builder /app/apps/ui/public ./public
 COPY --from=builder /app/apps/ui/package.json .
-COPY --from=builder /app/apps/ui/next.config.js .
-COPY --from=builder /app/apps/ui/.npmrc .
+COPY --from=builder /app/apps/ui/next.config.mjs .
 RUN npm install pnpm -g
 RUN pnpm install --prod
 EXPOSE 3000
