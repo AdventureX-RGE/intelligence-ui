@@ -16,7 +16,6 @@
   "scripts": {
     "dev": "pnpm build ./src/index.ts --outdir ./dist --target=node --minify --watch",
     "start": "tsx ./src/index.ts",
-    "prepare": "npx husky",
     "build": "tsup",
     "format": "biome lint --fix && biome check --write",
     "test": "pnpm run build && pnpm link",
@@ -41,7 +40,6 @@
     "@types/fs-extra": "^11.0.4",
     "@types/inquirer": "^9.0.7",
     "@types/node": "^22.10.7",
-    "husky": "^9.1.7",
     "release-it": "^18.1.1",
     "rimraf": "^6.0.1",
     "typescript": "^5.7.3"

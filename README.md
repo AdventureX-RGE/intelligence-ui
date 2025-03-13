@@ -16,6 +16,12 @@ Intelligence-UI 是一套轻松易用的 React 组件库，基于 [React Aria Co
 4. 基于 adventureX 的需要，进行组件样式和逻辑的调整
 5. 添加缺失的依赖
 
+### 提交规范
+
+```
+
+```
+
 ## 项目的特点
 
 - 基于 TailwindCSS4
