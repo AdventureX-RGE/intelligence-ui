@@ -16,6 +16,38 @@ Intelligence-UI 是一套轻松易用的 React 组件库，基于 [React Aria Co
 4. 基于 adventureX 的需要，进行组件样式和逻辑的调整
 5. 添加缺失的依赖
 
+本项目的基础目录结构如下
+
+```
+- apps
+  - ui：组件以及组件库的官网
+- packages
+  - cli：cli 执行
+```
+
+### 组件库开发规范
+
+这里以添加一个 button 组件为例子
+
+### 提交规范
+
+本项目使用 husky 执行 git hooks，请你按照如下的规范进行提交
+
+```
+"feat": 添加新的功能或特性
+"fix": 修复代码缺陷或问题
+"docs": 修改文档、注释或 README
+"chore": 构建过程或辅助工具的变动，不影响源代码
+"style": 代码格式修改（空格、格式化、分号等）
+"refactor": 重构代码，不涉及新功能或修复
+"ci": CI 配置文件和脚本的修改
+"test": 添加或修改测试用例
+"revert": 回滚之前的提交
+"perf": 提升性能的代码更改
+
+git commit -m "feat: add a button"
+```
+
 ## 项目的特点
 
 - 基于 TailwindCSS4

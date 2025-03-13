@@ -92,9 +92,9 @@ export function Installation({ className, ...props }: InstallationProps) {
           code={
             props.command ||
             (options.isInit
-              ? "npx justd-cli@latest init"
+              ? "npx intelligence-cli@latest init"
               : options.isComponent
-                ? `npx justd-cli@latest add ${items[0]}`
+                ? `npx intelligence-cli@latest add ${items[0]}`
                 : `${pkgManager.name} ${pkgManager.action} ${items.join(" ")}`)
           }
         />
@@ -114,7 +114,7 @@ export function Installation({ className, ...props }: InstallationProps) {
             isCopied={isCopied}
             setIsCopied={setIsCopied}
             onPress={() => {
-              copyToClipboard(`npx justd-cli@latest add ${items[0]}`).then(() => {
+              copyToClipboard(`npx intelligence-cli@latest add ${items[0]}`).then(() => {
                 setIsCopied(true)
                 op.track("cli pressed", { copy: `add ${items.join(" ")}` })
               })
@@ -125,7 +125,7 @@ export function Installation({ className, ...props }: InstallationProps) {
             isCopied={isCopied}
             setIsCopied={setIsCopied}
             onPress={() => {
-              copyToClipboard("npx justd-cli@latest init").then(() => {
+              copyToClipboard("npx intelligence-cli@latest init").then(() => {
                 setIsCopied(true)
                 op.track("cli pressed", { copy: "init" })
               })

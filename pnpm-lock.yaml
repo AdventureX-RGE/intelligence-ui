@@ -11,6 +11,16 @@ importers:
       turbo:
         specifier: ^2.4.4
         version: 2.4.4
+    devDependencies:
+      '@commitlint/cli':
+        specifier: ^19.6.1
+        version: 19.8.0(@types/node@22.13.10)(typescript@5.8.2)
+      '@commitlint/config-conventional':
+        specifier: ^19.6.0
+        version: 19.8.0
+      husky:
+        specifier: ^9.1.7
+        version: 9.1.7
 
   apps/ui:
     dependencies:
@@ -186,9 +196,6 @@ importers:
       encoding:
         specifier: ^0.1.13
         version: 0.1.13
-      husky:
-        specifier: ^9.1.7
-        version: 9.1.7
       postcss:
         specifier: ^8.5.3
         version: 8.5.3
@@ -295,9 +302,6 @@ importers:
       '@types/node':
         specifier: ^22.10.7
         version: 22.13.10
-      husky:
-        specifier: ^9.1.7
-        version: 9.1.7
       release-it:
         specifier: ^18.1.1
         version: 18.1.2(@types/node@22.13.10)(typescript@5.8.2)

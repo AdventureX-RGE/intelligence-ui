@@ -12,25 +12,26 @@ export const additionalDeps = async (
   packageManager: string,
   action: string,
 ) => {
-  const dependencies: Record<string, string> = {
-    toast: "sonner",
-    drawer: "motion",
-    disclosure: "justd-icons",
-    tabs: "motion",
-    "progress-bar": "motion",
-    navbar: "motion",
-    meter: "motion",
-    chart: "recharts",
-    "input-otp": "input-otp",
-    carousel: "embla-carousel-react",
-    "multiple-select": "react-aria",
-    "visually-hidden": "react-aria",
+  const dependencies: Record<string, string[]> = {
+    toast: ["sonner"],
+    drawer: ["motion"],
+    disclosure: ["justd-icons"],
+    tabs: ["motion"],
+    "progress-bar": ["motion"],
+    navbar: ["motion"],
+    meter: ["motion"],
+    chart: ["recharts"],
+    "input-otp": ["input-otp"],
+    carousel: ["embla-carousel-react"],
+    "multiple-select": ["react-aria"],
+    "visually-hidden": ["react-aria"],
   }
 
   const dependency = dependencies[componentName]
+  const dependencyString = dependency.join(" ")
 
   if (dependency) {
-    const installCommand = `${packageManager} ${action} ${dependency} --silent`
+    const installCommand = `${packageManager} ${action} ${dependencyString} --silent`
     const child = spawn(installCommand, {
       stdio: "ignore",
       shell: true,
@@ -41,8 +42,8 @@ export const additionalDeps = async (
         if (code === 0) {
           resolve()
         } else {
-          error(`Failed to install ${highlight(dependency)}. Exit code: ${code}`)
-          reject(new Error(`Installation failed for ${dependency} with code ${code}`))
+          error(`Failed to install ${highlight(dependencyString)}. Exit code: ${code}`)
+          reject(new Error(`Installation failed for ${dependencyString} with code ${code}`))
         }
       })
 
