@@ -43,10 +43,14 @@ export const additionalDeps = async (
           resolve();
         } else {
           error(
-            `Failed to install ${highlight(dependency)}. Exit code: ${code}`
+            `Failed to install ${highlight(
+              dependencyString
+            )}. Exit code: ${code}`
           );
           reject(
-            new Error(`Installation failed for ${dependency} with code ${code}`)
+            new Error(
+              `Installation failed for ${dependencyString} with code ${code}`
+            )
           );
         }
       });

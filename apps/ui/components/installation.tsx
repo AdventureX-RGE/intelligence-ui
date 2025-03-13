@@ -1,29 +1,29 @@
-"use client";
+"use client"
 
-import React, { useState } from "react";
+import React, { useState } from "react"
 
-import { CodeHighlighter } from "@/components/code/code-highlighter";
-import { CopyButton } from "@/components/code/copy-button";
-import { copyToClipboard } from "@/resources/lib/copy";
-import { useOpenPanel } from "@openpanel/nextjs";
-import { Group } from "react-aria-components";
-import { Link, Menu, composeTailwindRenderProps } from "ui";
+import { CodeHighlighter } from "@/components/code/code-highlighter"
+import { CopyButton } from "@/components/code/copy-button"
+import { copyToClipboard } from "@/resources/lib/copy"
+import { useOpenPanel } from "@openpanel/nextjs"
+import { Group } from "react-aria-components"
+import { Link, Menu, composeTailwindRenderProps } from "ui"
 
 export interface InstallationProps {
-  items: string[];
-  command?: string;
-  className?: string;
+  items: string[]
+  command?: string
+  className?: string
   options: {
-    isInit?: boolean;
-    isComponent?: boolean;
-    isManual?: boolean;
-    isExecutor?: boolean;
-    noText?: boolean;
-  };
+    isInit?: boolean
+    isComponent?: boolean
+    isManual?: boolean
+    isExecutor?: boolean
+    noText?: boolean
+  }
 }
 
 export function Installation({ className, ...props }: InstallationProps) {
-  const op = useOpenPanel();
+  const op = useOpenPanel()
   const {
     options = {
       isExecutor: false,
@@ -33,20 +33,20 @@ export function Installation({ className, ...props }: InstallationProps) {
       noText: true,
     },
     items,
-  } = props;
+  } = props
   const [pkgManager, setPkgManager] = useState({
     name: "npm",
     action: "i",
-  });
-  const [isCopied, setIsCopied] = useState(false);
+  })
+  const [isCopied, setIsCopied] = useState(false)
 
   React.useEffect(() => {
-    let timer: NodeJS.Timeout;
+    let timer: NodeJS.Timeout
     if (isCopied) {
-      timer = setTimeout(() => setIsCopied(false), 2000);
+      timer = setTimeout(() => setIsCopied(false), 2000)
     }
-    return () => clearTimeout(timer);
-  }, [isCopied]);
+    return () => clearTimeout(timer)
+  }, [isCopied])
 
   return (
     <div className={className}>
@@ -67,15 +67,14 @@ export function Installation({ className, ...props }: InstallationProps) {
       )}
       {options.isManual && (
         <p>
-          Make sure you also install the <strong>composed components</strong>{" "}
-          and the <strong>required packages</strong> for the component to
-          function properly.
+          Make sure you also install the <strong>composed components</strong> and the{" "}
+          <strong>required packages</strong> for the component to function properly.
         </p>
       )}
       <Group
         className={composeTailwindRenderProps(
           className,
-          "group relative flex h-12 items-center overflow-hidden rounded-lg border bg-shiki-bg pr-1"
+          "group relative flex h-12 items-center overflow-hidden rounded-lg border bg-shiki-bg pr-1",
         )}
       >
         <svg
@@ -84,12 +83,7 @@ export function Installation({ className, ...props }: InstallationProps) {
           viewBox="0 0 24 24"
           className="z-10 ml-[0.395rem] hidden size-6 text-zinc-400 md:block"
         >
-          <path
-            stroke="currentColor"
-            d="m10 16 4-4-4-4"
-            strokeLinecap="square"
-            strokeWidth="2"
-          />
+          <path stroke="currentColor" d="m10 16 4-4-4-4" strokeLinecap="square" strokeWidth="2" />
         </svg>
         <CodeHighlighter
           plain
@@ -100,8 +94,8 @@ export function Installation({ className, ...props }: InstallationProps) {
             (options.isInit
               ? "npx intelligence-cli@latest init"
               : options.isComponent
-              ? `npx intelligence-cli@latest add ${items[0]}`
-              : `${pkgManager.name} ${pkgManager.action} ${items.join(" ")}`)
+                ? `npx intelligence-cli@latest add ${items[0]}`
+                : `${pkgManager.name} ${pkgManager.action} ${items.join(" ")}`)
           }
         />
         {props.command ? (
@@ -110,9 +104,9 @@ export function Installation({ className, ...props }: InstallationProps) {
             setIsCopied={setIsCopied}
             onPress={() => {
               copyToClipboard(props.command as string).then(() => {
-                setIsCopied(true);
-                op.track("cli pressed", { copy: props.command });
-              });
+                setIsCopied(true)
+                op.track("cli pressed", { copy: props.command })
+              })
             }}
           />
         ) : options.isComponent ? (
@@ -120,12 +114,10 @@ export function Installation({ className, ...props }: InstallationProps) {
             isCopied={isCopied}
             setIsCopied={setIsCopied}
             onPress={() => {
-              copyToClipboard(
-                `npx intelligence-cli@latest add ${items[0]}`
-              ).then(() => {
-                setIsCopied(true);
-                op.track("cli pressed", { copy: `add ${items.join(" ")}` });
-              });
+              copyToClipboard(`npx intelligence-cli@latest add ${items[0]}`).then(() => {
+                setIsCopied(true)
+                op.track("cli pressed", { copy: `add ${items.join(" ")}` })
+              })
             }}
           />
         ) : options.isInit ? (
@@ -134,9 +126,9 @@ export function Installation({ className, ...props }: InstallationProps) {
             setIsCopied={setIsCopied}
             onPress={() => {
               copyToClipboard("npx intelligence-cli@latest init").then(() => {
-                setIsCopied(true);
-                op.track("cli pressed", { copy: "init" });
-              });
+                setIsCopied(true)
+                op.track("cli pressed", { copy: "init" })
+              })
             }}
           />
         ) : (
@@ -152,21 +144,21 @@ export function Installation({ className, ...props }: InstallationProps) {
         )}
       </Group>
     </div>
-  );
+  )
 }
 
 interface PkgManager {
-  name: string;
-  action: string;
-  executor?: string;
+  name: string
+  action: string
+  executor?: string
 }
 
 interface ChoosePkgManagerProps {
-  isCopied: boolean;
-  setIsCopied: (isCopied: boolean) => void;
-  setPkgManager: (pkgManager: PkgManager) => void;
-  items: string[];
-  isExecutor?: boolean;
+  isCopied: boolean
+  setIsCopied: (isCopied: boolean) => void
+  setPkgManager: (pkgManager: PkgManager) => void
+  items: string[]
+  isExecutor?: boolean
 }
 
 function ChoosePkgManager({
@@ -176,14 +168,14 @@ function ChoosePkgManager({
   setIsCopied,
   setPkgManager,
 }: ChoosePkgManagerProps) {
-  const op = useOpenPanel();
+  const op = useOpenPanel()
 
   function handleAction(tool: string) {
     let selectedPkgManager: PkgManager = {
       name: "",
       executor: "",
       action: "",
-    };
+    }
 
     switch (tool) {
       case "npm":
@@ -191,44 +183,40 @@ function ChoosePkgManager({
           name: "npm",
           executor: "npx",
           action: "i",
-        };
-        break;
+        }
+        break
       case "yarn":
         selectedPkgManager = {
           name: "yarn",
           executor: "yarn dlx",
           action: "add",
-        };
-        break;
+        }
+        break
       case "pnpm":
         selectedPkgManager = {
           name: "pnpm",
           executor: "pnpm dlx",
           action: "add",
-        };
-        break;
+        }
+        break
       case "bun":
         selectedPkgManager = {
           name: "bun",
           executor: "bunx",
           action: "add",
-        };
-        break;
+        }
+        break
     }
 
-    setPkgManager(selectedPkgManager);
+    setPkgManager(selectedPkgManager)
 
-    const executor = isExecutor
-      ? selectedPkgManager.executor
-      : selectedPkgManager.name;
-    copyToClipboard(
-      `${executor} ${selectedPkgManager.action} ${items.join(" ")}`
-    ).then(() => {
-      setIsCopied(true);
+    const executor = isExecutor ? selectedPkgManager.executor : selectedPkgManager.name
+    copyToClipboard(`${executor} ${selectedPkgManager.action} ${items.join(" ")}`).then(() => {
+      setIsCopied(true)
       op.track("cli pressed", {
         copy: `${executor} ${selectedPkgManager.action} ${items.join(" ")}`,
-      });
-    });
+      })
+    })
   }
 
   return (
@@ -247,5 +235,5 @@ function ChoosePkgManager({
         ))}
       </Menu.Content>
     </Menu>
-  );
+  )
 }
