@@ -12,8 +12,7 @@
     "format": "pnpm format:ui && pnpm format:cli",
     "format:ui": "pnpm --filter=@adventure-x/intelligence-ui format",
     "format:cli": "pnpm --filter=@adventure-x/intelligence-cli format",
-    "prepare": "husky",
-    "precommit": "echo \"不能跳过提交检查！\" && exit 1"
+    "prepare": "husky"
   },
   "workspaces": [
     "apps/*",
