@@ -48,7 +48,7 @@ export async function setGray(overwriteConfirmation: boolean, selectedTheme?: st
   if (!doesConfigExist) {
     error(
       `${errorText("intelligence-ui.json not found")}. ${grayText(
-        `Please run ${highlight("npx justd-cli@latest init")} to initialize the project.`,
+        `Please run ${highlight("npx intelligence-ui@latest init")} to initialize the project.`,
       )}`,
     )
     process.exit(1)

@@ -34,9 +34,12 @@ export const getThemesRepoUrl = (gray: string): string => {
  *  @param type
  *  @returns string
  */
-export const getRepoUrlForComponent = (componentName: string, type: "justd" | "block") => {
+export const getRepoUrlForComponent = (
+  componentName: string,
+  type: "intelligence-ui" | "block",
+) => {
   if (type === "block") {
-    return `https://blocks.getjustd.com/api/registry/ui/${componentName}.tsx`
+    return `https://blocks.ui.adventure-x.org/api/registry/ui/${componentName}.tsx`
   }
 
   return `${REPO}/${BRANCH}/components/ui/${componentName}.tsx`
