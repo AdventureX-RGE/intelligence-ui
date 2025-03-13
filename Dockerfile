@@ -9,6 +9,6 @@ FROM node:18-alpine AS runner
 WORKDIR /app
 COPY --from=builder /app/apps/ui/.next ./.next
 COPY --from=builder /app/apps/ui/package.json .
-RUN pnpm install
+RUN npm install
 EXPOSE 12012
 CMD ["npm", "start"]
