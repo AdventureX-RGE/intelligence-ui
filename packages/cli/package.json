@@ -1,0 +1,121 @@
+{
+  "name": "@adventure-x/intelligence-cli",
+  "type": "module",
+  "version": "2.6.1",
+  "description": "The command line interface for Justd.",
+  "main": "dist/index.js",
+  "bin": {
+    "justd": "dist/index.js"
+  },
+  "files": [
+    "dist",
+    "src/resources",
+    "LICENSE",
+    "README.md",
+    "package.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/justdlabs/cli.git"
+  },
+  "homepage": "https://getjustd.com/cli",
+  "scripts": {
+    "dev": "pnpm build ./src/index.ts --outdir ./dist --target=node --minify --watch",
+    "start": "tsx ./src/index.ts",
+    "prepare": "npx husky",
+    "build": "tsup",
+    "format": "biome lint --fix && biome check --write",
+    "test": "pnpm run build && pnpm link",
+    "preview": "pnpm run clean && pnpm run build && pnpm link",
+    "pr": "pnpm run build && git commit -a",
+    "pre": "chmod a+x dist/index.js",
+    "release": "export GITHUB_TOKEN=$(cat .github_token) && release-it",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [
+    "cli",
+    "justd cli",
+    "Justd",
+    "design-system",
+    "justd"
+  ],
+  "author": "Irsyad A. Panjaitan",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.11",
+    "@commitlint/cli": "^19.6.1",
+    "@commitlint/config-conventional": "^19.6.0",
+    "@release-it/conventional-changelog": "^10.0.0",
+    "@types/babel__core": "^7.20.5",
+    "@types/diff": "^7.0.0",
+    "@types/figlet": "^1.7.0",
+    "@types/fs-extra": "^11.0.4",
+    "@types/inquirer": "^9.0.7",
+    "@types/node": "^22.10.7",
+    "husky": "^9.1.7",
+    "release-it": "^18.1.1",
+    "rimraf": "^6.0.1",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "@antfu/ni": "^23.2.0",
+    "@inquirer/prompts": "^7.2.3",
+    "arktype": "^2.0.0",
+    "async-listen": "^3.0.1",
+    "chalk": "^5.4.1",
+    "commander": "^13.0.0",
+    "diff": "^7.0.0",
+    "nanoid": "^5.0.9",
+    "open": "^10.1.0",
+    "ora": "^8.1.1",
+    "picocolors": "^1.1.1",
+    "rc9": "^2.1.2",
+    "strip-json-comments": "^5.0.1",
+    "sucrase": "^3.35.0",
+    "ts-morph": "^25.0.0",
+    "tsup": "^8.4.0"
+  },
+  "release-it": {
+    "git": {
+      "commitMessage": "chore: release ${version}",
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true
+    },
+    "npm": {
+      "publish": false
+    },
+    "publishConfig": {
+      "access": "public",
+      "registry": "https://npm.pkg.github.com"
+    },
+    "plugins": {
+      "@release-it/conventional-changelog": {
+        "infile": "CHANGELOG.md",
+        "preset": {
+          "name": "conventionalcommits",
+          "types": [
+            {
+              "type": "feat",
+              "section": "Features"
+            },
+            {
+              "type": "fix",
+              "section": "Bug Fixes"
+            },
+            {
+              "type": "refactor",
+              "section": "Refactors"
+            },
+            {
+              "type": "chore",
+              "section": "Chores"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

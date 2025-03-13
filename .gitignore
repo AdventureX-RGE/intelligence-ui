@@ -1,0 +1,65 @@
+# Dependencies
+node_modules
+.pnp
+.pnp.js
+.yarn/install-state.gz
+.pnpm-store/
+
+# Build outputs
+dist
+.next
+out
+build
+.velite
+
+# Testing
+coverage
+
+# IDE
+.idea
+.vscode
+.fleet
+
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Environment
+.env
+.env*.local
+.env.development
+.env.test
+.env.production
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Turbo
+.turbo
+tsconfig.tsbuildinfo
+
+# Vercel
+.vercel
+
+# Misc
+.DS_Store
+*.pem
+.cache
+temp
+tmp
+*.log
+
+# Project specific
+**/__registry__
+**/public/registry
+**/app/sink/**
+**/public/stubs
+**/public/static
+ignore
+**/.source
+**/note.md
+delete-me.txt

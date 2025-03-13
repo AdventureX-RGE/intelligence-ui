@@ -1,0 +1,87 @@
+{
+  "$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "files": {
+    "ignore": [
+      "**/*.js",
+      "public/**/*",
+      "resources/lib/sidebar.json",
+      "resources/stubs/**/*",
+      "**/*.css",
+      "**/.next/**",
+      "resource/content",
+      ".source",
+      "components/docs/generated/**/*"
+    ]
+  },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "recommended": true,
+      "style": {
+        "useNumberNamespace": "off",
+        "noNonNullAssertion": "off",
+        "noParameterAssign": "warn",
+        "useImportType": "error"
+      },
+      "complexity": {
+        "useArrowFunction": "error"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off",
+        "useValidAnchor": "off",
+        "useSemanticElements": "off"
+      },
+      "correctness": {
+        "useHookAtTopLevel": "error",
+        "noUnusedImports": "error",
+        "noChildrenProp": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off",
+        "noArrayIndexKey": "off",
+        "noConsoleLog": "warn"
+      },
+      "security": {
+        "noDangerouslySetInnerHtml": "off"
+      },
+      "nursery": {
+        "useSortedClasses": {
+          "level": "error",
+          "fix": "safe",
+          "options": {
+            "attributes": ["classList"],
+            "functions": ["cn", "twJoin", "tv", "composeRenderProps", "composeTailwindRenderProps"]
+          }
+        }
+      }
+    },
+    "ignore": ["node_modules", ".next", ".source", "dist", ".vercel"]
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 100,
+    "ignore": ["node_modules", ".next", ".source", "dist", ".vercel"]
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "double",
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "semicolons": "asNeeded",
+      "trailingCommas": "all"
+    }
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "noUncheckedIndexedAccess": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "target": "ESNext",
+    "downlevelIteration": true,
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
+    "paths": {
+      "@/*": ["./*"],
+      "ui": ["./components/ui"],
+      "hooks/*": ["apps/ui/resources/hooks/*"],
+      "content-collections": ["./.content-collections/generated"],
+      "#site/content": ["./.source"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs"],
+  "exclude": [
+    ".next",
+    "node_modules",
+    "apps/ui/resources/stubs",
+    "apps/ui/resources/content/**/*.mdx",
+    "apps/ui/resources/scripts/build-registry.mts",
+    "__registry__"
+  ]
+}

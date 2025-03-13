@@ -1,0 +1,27 @@
+{
+  "name": "intelligence-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "turbo build --filter=@adventure-x/intelligence-ui",
+    "build:registry": "cd apps/ui && pnpm build:registry",
+    "build:stubs": "cd apps/ui && build:stubs",
+    "build:ui": "pnpm --filter=@adventure-x/intelligence-ui build",
+    "ui": "pnpm --filter=@adventure-x/intelligence-ui dev",
+    "format:ui": "pnpm --filter=@adventure-x/intelligence-ui format",
+    "format:cli": "pnpm --filter=@adventure-x/intelligence-ui format",
+    "format:write": "pnpm --filter=@adventure-x/intelligence-ui format"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "packageManager": "pnpm@9.0.6",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "turbo": "^2.4.4"
+  }
+}
