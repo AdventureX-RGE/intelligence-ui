@@ -7,10 +7,8 @@ import { Link } from "ui"
 import { Container, Heading } from "ui"
 
 export default function Page() {
-  const components =
-    (source.pageTree as any).children?.[0]?.children?.find(
-      (item: any) => item.name === "Components",
-    )?.children || []
+  const components = (source.pageTree as any).children?.[3]?.children || []
+
   return (
     <div>
       <Header>
