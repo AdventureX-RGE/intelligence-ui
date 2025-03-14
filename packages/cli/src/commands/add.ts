@@ -90,17 +90,17 @@ export async function add(options: {
   components: string[]
   overwrite: boolean
   successMessage: string
-  prioritize: "block" | "justd"
+  prioritize: "block" | "intelligence-ui"
 }) {
   const spinner = ora("Checking.").start()
-  const { overwrite, successMessage, components: comps, prioritize = "justd" } = options
+  const { overwrite, successMessage, components: comps, prioritize = "intelligence-ui" } = options
 
   const doesConfigExist = await configManager.doesConfigExist()
 
   if (!doesConfigExist) {
     spinner.fail(
       `${warningText("intelligence-ui.json not found")}. ${grayText(
-        `Please run ${highlight("npx justd-cli@latest init")} to initialize the project.`,
+        `Please run ${highlight("npx intelligence-cli@latest init")} to initialize the project.`,
       )}`,
     )
     return
@@ -134,7 +134,7 @@ export async function add(options: {
   const createdFiles: string[] = []
   const existingFiles = new Set<string>()
   const processed = new Set<string>()
-  let type: "justd" | "block" = prioritize
+  let type: "intelligence-ui" | "block" = prioritize
 
   try {
     spinner.start("Checking.")
@@ -157,7 +157,7 @@ export async function add(options: {
         if (!response.ok) {
           const blockUrl = getRepoUrlForComponent(
             componentName,
-            type === "block" ? "justd" : "block",
+            type === "block" ? "intelligence-ui" : "block",
           )
 
           const response = await fetch(blockUrl, {
@@ -172,7 +172,7 @@ export async function add(options: {
             process.exit(1)
           }
 
-          type = type === "block" ? "justd" : "block"
+          type = type === "block" ? "intelligence-ui" : "block"
 
           return response
         }
@@ -190,6 +190,7 @@ export async function add(options: {
   spinner.start("Installing dependencies.")
 
   try {
+    // TODO: 后续这里要改成配置，动态配置 hooks
     if (
       selectedComponents.some((component: string) =>
         ["popover", "dialog", "sidebar", "navbar", "command-menu", "number-field"].includes(
@@ -221,12 +222,14 @@ export async function add(options: {
         selectedComponents.map(async (componentName: string) => {
           try {
             const targetComponent = components.find((comp) => comp.name === componentName)
-            if (!targetComponent && type === "justd") {
+
+            if (!targetComponent && type === "intelligence-ui") {
               warn(`Component '${highlight(componentName)}' not found in local resources.`)
               return
             }
 
             const componentPath = getWriteComponentPath(config, componentName)
+
             if (fs.existsSync(componentPath) && !overwrite) {
               existingFiles.add(componentPath)
               return
@@ -344,7 +347,7 @@ async function processComponent(
     isChild: boolean
     createdFiles: string[]
     existingFiles: Set<string>
-    type: "justd" | "block"
+    type: "intelligence-ui" | "block"
   },
 ) {
   if (options.processed.has(options.componentName)) return
@@ -387,7 +390,11 @@ async function processComponent(
  *  @param componentName string
  * @param type
  */
-async function createComponent(config: Config, componentName: string, type: "justd" | "block") {
+async function createComponent(
+  config: Config,
+  componentName: string,
+  type: "intelligence-ui" | "block",
+) {
   const writePath = getWriteComponentPath(config, componentName)
   const dir = path.dirname(writePath)
 
@@ -414,7 +421,7 @@ async function createComponent(config: Config, componentName: string, type: "jus
     await writeCodeFile(config, {
       writePath,
       ogFilename: `${componentName}.tsx`,
-      content: type === "justd" ? content : JSON.parse(content),
+      content: type === "intelligence-ui" ? content : JSON.parse(content),
     })
   } catch (err) {
     console.log(err)

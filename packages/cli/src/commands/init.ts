@@ -25,7 +25,7 @@ import {
   possibilityUtilsPath,
 } from "@/utils/helpers"
 import { error, grayText, highlight, info } from "@/utils/logging"
-import { getRepoUrlForComponent } from "@/utils/repo"
+import { getRepoUrlForComponent, getRepoUrlForUtils } from "@/utils/repo"
 import ora from "ora"
 import stripJsonComments from "strip-json-comments"
 
@@ -310,17 +310,19 @@ export async function init(flags: {
     })
   })
 
-  const fileUrl = getRepoUrlForComponent("primitive", "justd")
-  const response = await fetch(fileUrl)
+  // 写入primitiveFile
+  const primitiveFileUrl = getRepoUrlForComponent("primitive", "intelligence-ui")
+  const primitiveResponse = await fetch(primitiveFileUrl)
 
-  if (!response.ok) throw new Error(`Failed to fetch component: ${response.statusText}`)
+  if (!primitiveResponse.ok)
+    throw new Error(`Failed to fetch component: ${primitiveResponse.statusText}`)
 
-  const fileContent = await response.text()
+  const primitiveFileContent = await primitiveResponse.text()
 
   await writeCodeFile(createdConfig, {
     writePath: path.join(uiFolder, "primitive.tsx"),
     ogFilename: "primitive.tsx",
-    content: fileContent,
+    content: primitiveFileContent,
   })
 
   fs.writeFileSync(
@@ -329,6 +331,23 @@ export async function init(flags: {
     { flag: "w" },
   )
 
+  // 写入 classes
+  const classesFileUrl = getRepoUrlForUtils("classes")
+  const classesResponse = await fetch(classesFileUrl)
+
+  if (!classesResponse.ok) {
+    throw new Error(`Failed to fetch utils: ${classesResponse.statusText}`)
+  }
+
+  const classesFileContent = await classesResponse.text()
+
+  await writeCodeFile(createdConfig, {
+    writePath: path.join(utilsFolder, "classes.ts"),
+    ogFilename: "classes.ts",
+    content: classesFileContent,
+  })
+
+  // 写入 themeProvider
   if (themeProvider) {
     const themeProviderContent = fs.readFileSync(themeProvider, "utf8")
 
@@ -359,11 +378,13 @@ export async function init(flags: {
     fs.mkdirSync(uiFolder, { recursive: true })
   }
   spinner.succeed(`UI folder created at ${highlight(`${uiFolder}`)}`)
+
   spinner.succeed(
     `Primitive file saved to ${highlight(
       `${uiFolder}/${getCorrectFileExtension(language, "primitive.tsx")}`,
     )}`,
   )
+  spinner.succeed(`Classes Utils saved to ${highlight(`${utilsFolder}/classes.ts`)}`)
   if (themeProvider) {
     spinner.succeed(
       `Theme Provider file saved to ${highlight(
@@ -383,9 +404,9 @@ export async function init(flags: {
   spinner.succeed("Installation complete.")
 
   console.info("\n\nNot sure what to do next?")
-  console.info(`Visit our documentation at: ${highlight("https://getjustd.com")}`)
+  console.info(`Visit our documentation at: ${highlight("https://ui.adventure-x.org")}`)
 
   console.info("\nNow try to add some components to your project")
-  console.info(`by running: ${highlight("npx justd-cli@latest add")}`)
+  console.info(`by running: ${highlight("npx intelligence-cli@latest add")}`)
   spinner.stop()
 }

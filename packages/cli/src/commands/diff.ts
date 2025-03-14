@@ -24,7 +24,7 @@ const getLocalComponentPath = (config: Config, componentName: string) => {
  * @param componentName
  */
 const fetchRemoteComponent = async (componentName: string): Promise<string> => {
-  const url = getRepoUrlForComponent(componentName, "justd")
+  const url = getRepoUrlForComponent(componentName, "intelligence-ui")
   const response = await fetch(url)
   if (!response.ok) throw new Error(`Failed to fetch component: ${response.statusText}`)
   return response.text()
@@ -177,7 +177,7 @@ export const diff = async (...args: string[]) => {
         components: selectedComponents,
         overwrite: true,
         successMessage: "Updating components...",
-        prioritize: "justd",
+        prioritize: "intelligence-ui",
       })
     } else {
       console.log(chalk.green("✔ All components are up to date."))

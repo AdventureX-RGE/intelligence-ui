@@ -25,13 +25,41 @@ Intelligence-UI 是一套轻松易用的 React 组件库，基于 [React Aria Co
   - cli：cli 执行
 ```
 
+## 如何调试
+
+所有便于开发者进行调试的命令都被放在了根目录的`package.json`中，例如运行命令，你无需 cd 到对应的目录进行测试
+
+```bash
+pnpm dev # 根目录运行即可
+```
+
 ### 组件库开发规范
 
 这里以添加一个 button 组件为例子
 
+### cli 开发规范
+
+根目录运行如下命令进行测试，会为你创建一个全局的 link
+
+```bash
+pnpm test:cli
+```
+
+在你需要测试的目录执行
+
+```bash
+pnpm link @adventure-x/intelligence-cli --global
+```
+
+### 分支规范
+
+使用`feat/xxx`来代表增添新功能，使用`hotfix/xxx`代表线上 bug 的修复
+
+使用 `dev` 分支作为上线前的预览分支，只有这个分支可以合并到 main 分支，且务必提 pr
+
 ### 提交规范
 
-本项目使用 husky 执行 git hooks，请你按照如下的规范进行提交
+本项目使用 husky 执行 git hooks，请你按照如下的规范进行提交，且禁止向 main 分支强制推送
 
 ```
 "feat": 添加新的功能或特性

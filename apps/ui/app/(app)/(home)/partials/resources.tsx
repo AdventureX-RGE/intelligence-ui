@@ -114,9 +114,6 @@ export function Resources() {
                   Pre-designed, ready-to-use React components for seamless integration, customizable
                   and optimized for modern web applications.
                 </Card.Description>
-                <div>
-                  <Badge>Premium Blocks</Badge>
-                </div>
               </Card.Header>
             </div>
           </Link>
@@ -139,9 +136,6 @@ export function Resources() {
                   Looking for beautifully crafted templates to elevate your project? Browse through
                   a collection of designs tailored to meet your needs.
                 </Card.Description>
-                <div>
-                  <Badge>Premium Blocks</Badge>
-                </div>
               </Card.Header>
             </div>
           </Link>

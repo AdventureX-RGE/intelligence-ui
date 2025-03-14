@@ -35,7 +35,7 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
       <SidebarHeader>
         <Link
           className="inline-flex items-center gap-x-2 group-data-[collapsible=dock]:size-10 group-data-[collapsible=dock]:justify-center"
-          href="/docs/2.x/components/layouts/sidebar"
+          href="/docs/components/layouts/sidebar"
         >
           <IconBrandApple className="size-5" />
           <SidebarLabel className="font-medium">Apple</SidebarLabel>
@@ -108,7 +108,12 @@ export default function AppSidebar(props: React.ComponentProps<typeof Sidebar>) 
 }
 
 const navigation = [
-  { label: "Overview", icon: <IconDashboard />, isCurrent: true, badge: undefined },
+  {
+    label: "Overview",
+    icon: <IconDashboard />,
+    isCurrent: true,
+    badge: undefined,
+  },
   { label: "Orders", icon: <IconCart />, isCurrent: false, badge: 24 },
   { label: "Products", icon: <IconCube />, isCurrent: false, badge: "31.51K" },
   { label: "Customers", icon: <IconPeople />, isCurrent: false, badge: "12K" },

@@ -91,7 +91,7 @@ export function CommandPalette({ openCmd, setOpen }: OpenCloseProps) {
               <CommandMenu.Item textValue="home" href="/">
                 <IconHome /> <CommandMenu.Label>Home</CommandMenu.Label>
               </CommandMenu.Item>
-              <CommandMenu.Item textValue="docs" href="/docs/2.x/getting-started/installation">
+              <CommandMenu.Item textValue="docs" href="/docs/getting-started/installation">
                 <IconNotes /> <CommandMenu.Label>Docs</CommandMenu.Label>
               </CommandMenu.Item>
               <CommandMenu.Item textValue="components" href="/components">

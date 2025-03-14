@@ -1,12 +1,12 @@
 import { availableGrays } from "@/commands/change-gray"
 import { error } from "@/utils/logging"
 
-const REPO = "https://raw.githubusercontent.com/AdventureX-RGE/intelligence-ui"
-
+const REPO = "https://cdn.jsdelivr.net/gh/AdventureX-RGE/intelligence-ui/apps/ui"
+const CDN_REPO = "/resources/styles/themes/zinc.css"
 // const branchWorkingOn = isTailwind(3) ? "1.x" : "2.x"
-const BRANCH = "main"
+// const BRANCH = "main";
 
-const THEMES_URL = `${REPO}/refs/heads/${BRANCH}/resources/styles/themes`
+const THEMES_URL = `${REPO}/resources/styles/themes`
 /**
  *  This function is used to get the URL for the themes repo
  *  @param gray string
@@ -34,12 +34,24 @@ export const getThemesRepoUrl = (gray: string): string => {
  *  @param type
  *  @returns string
  */
-export const getRepoUrlForComponent = (componentName: string, type: "justd" | "block") => {
+export const getRepoUrlForComponent = (
+  componentName: string,
+  type: "intelligence-ui" | "block",
+) => {
   if (type === "block") {
-    return `https://blocks.getjustd.com/api/registry/ui/${componentName}.tsx`
+    return `https://blocks.ui.adventure-x.org/api/registry/ui/${componentName}.tsx`
   }
 
-  return `${REPO}/${BRANCH}/components/ui/${componentName}.tsx`
+  return `${REPO}/components/ui/${componentName}.tsx`
+}
+
+/**
+ *  This function is used to get the URL for a utils
+ *  @param componentName string
+ *  @returns string
+ */
+export const getRepoUrlForUtils = (utilsName: string) => {
+  return `${REPO}/utils/${utilsName}.ts`
 }
 
 /**
@@ -48,7 +60,7 @@ export const getRepoUrlForComponent = (componentName: string, type: "justd" | "b
  *  @returns string
  */
 export const getUtilsFolder = (file: string): string => {
-  const utils = `${REPO}/refs/heads/${BRANCH}/utils/${file}`
+  const utils = `${REPO}/utils/${file}`
   if (!utils) {
     throw new Error("REPO_URL environment variable is not set")
   }
