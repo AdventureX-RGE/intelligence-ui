@@ -46,6 +46,15 @@ export const getRepoUrlForComponent = (
 }
 
 /**
+ *  This function is used to get the URL for a utils
+ *  @param componentName string
+ *  @returns string
+ */
+export const getRepoUrlForUtils = (utilsName: string) => {
+  return `${REPO}/utils/${utilsName}.ts`
+}
+
+/**
  *  This function is used to get the URL for the classes file
  *  @param file
  *  @returns string
