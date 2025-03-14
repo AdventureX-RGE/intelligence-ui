@@ -326,7 +326,7 @@ export function NavbarDropdown() {
 //     label: "Figma",
 //     href: "#",
 //     icon: <IconBrandFigma />,
-//     description: "Enhance your Figma designs with Justd components.",
+//     description: "Enhance your Figma designs with Intelligence-UI components.",
 //     badge: "Coming soon",
 //   },
 // ];

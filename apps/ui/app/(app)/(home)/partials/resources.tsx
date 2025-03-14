@@ -17,7 +17,7 @@ const resources = [
     name: "Next.js Starter Kit",
     url: "https://next.getjustd.com/",
     description:
-      "A Next.js starter kit with Justd installed. You don't need to set up anything, just run clone it and you're good to go!",
+      "A Next.js starter kit with Intelligence-UI installed. You don't need to set up anything, just run clone it and you're good to go!",
     label: "Starter Kit",
   },
   {
@@ -25,21 +25,23 @@ const resources = [
     name: "Laravel Starter Kit",
     url: "https://github.com/justdlabs/inertia.ts",
     description:
-      "A Laravel starter kit with Justd installed. It includes a authentication system out of the box.",
+      "A Laravel starter kit with Intelligence-UI installed. It includes a authentication system out of the box.",
     label: "Starter Kit",
   },
   {
     icon: IconBrandRemix,
     name: "Remix Starter Kit",
     url: "https://github.com/justdlabs/remix",
-    description: "A Remix starter kit with Justd installed, ready for use in any application.",
+    description:
+      "A Remix starter kit with Intelligence-UI installed, ready for use in any application.",
     label: "Starter Kit",
   },
   {
     icon: IconBrandAstro,
     name: "Astro Starter Kit",
     url: "https://astro.getjustd.com/",
-    description: "A Astro starter kit with Justd installed, ready for use in any application.",
+    description:
+      "A Astro starter kit with Intelligence-UI installed, ready for use in any application.",
     label: "Starter Kit",
   },
 ]
@@ -85,7 +87,7 @@ export function Resources() {
       <section id="extra">
         <div className="mb-4">
           <Heading level={2} className="text-2xl sm:text-2xl">
-            Justd Blocks
+            Intelligence-UI Blocks
           </Heading>
           <p className="text-muted-fg leading-relaxed lg:text-lg">
             Create Beautiful Pages Effortlessly in No Time
@@ -98,7 +100,7 @@ export function Resources() {
           <Link
             className="group relative bg-bg p-4 hover:bg-overlay sm:p-8 lg:p-10"
             target="_blank"
-            aria-label={"Justd Blocks"}
+            aria-label={"Intelligence-UI Blocks"}
             rel="noopener noreferrer"
             href="https://dub.sh/RNMV32k"
           >
@@ -108,7 +110,7 @@ export function Resources() {
               </WrapperIcon>
               <Card.Header className="flex flex-col gap-y-2 sm:gap-y-4">
                 <Card.Title level={3} className="sm:mb-2 sm:text-2xl/0">
-                  Justd Blocks
+                  Intelligence-UI Blocks
                 </Card.Title>
                 <Card.Description>
                   Pre-designed, ready-to-use React components for seamless integration, customizable
@@ -120,7 +122,7 @@ export function Resources() {
           <Link
             className="group relative bg-bg p-4 hover:bg-overlay sm:p-8 lg:p-10"
             target="_blank"
-            aria-label={"Justd icons"}
+            aria-label={"Intelligence-UI icons"}
             rel="noopener noreferrer"
             href="https://blocks.getjustd.com/templates"
           >

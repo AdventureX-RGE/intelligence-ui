@@ -12,7 +12,7 @@ export function Banner() {
 
     if (!dismissedTime || currentTime - parseInt(dismissedTime) > 86400000) {
       setTimeout(() => {
-        toast("🎉 Save 15% on all Justd Blocks for a limited time during the launch!", {
+        toast("🎉 Save 15% on all Intelligence-UI Blocks for a limited time during the launch!", {
           duration: Infinity,
           action: {
             label: "Let's go!",
@@ -38,7 +38,7 @@ export function Banner() {
     >
       <div className="inline-flex items-center rounded-md sm:border sm:border-zinc-300 sm:bg-bg sm:px-2.5 sm:py-1 sm:shadow-xs sm:group-hover:shadow-none sm:dark:border-zinc-800">
         <IconBrandJustdBlocks className="-ml-0.5 mr-1 inline" />
-        <strong className="mr-1 ml-1 font-semibold">Save 15% on all Justd Blocks</strong>
+        <strong className="mr-1 ml-1 font-semibold">Save 15% on all Intelligence-UI Blocks</strong>
         <span className="hidden items-center sm:inline-flex">
           for a limited time during the launch!
           <IconArrowRight className="ml-2 text-muted-fg transition-transform duration-200 group-hover:translate-x-1 group-hover:text-fg" />

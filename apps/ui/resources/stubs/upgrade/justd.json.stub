@@ -1,5 +1,5 @@
 {
-  "$schema": "https://getjustd.com/schema.json",
+  "$schema": "https://ui.adventure-x.org/schema.json",
   "ui": "src/components/ui",
   "utils": "src/utils",
   "gray": "zinc",

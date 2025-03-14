@@ -96,7 +96,7 @@ export default function RootLayout({
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://getjustd.com"),
+  metadataBase: new URL("https://ui.adventure-x.org"),
   title: {
     default: `${siteConfig.name}`,
     template: `%s / ${siteConfig.name}`,
@@ -104,7 +104,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: siteConfig.name,
     description: siteConfig.description,
-    url: "https://getjustd.com",
+    url: "https://ui.adventure-x.org",
     siteName: siteConfig.name,
   },
   description: siteConfig.description,
@@ -120,7 +120,7 @@ export const metadata: Metadata = {
     "UI Kit",
     "UI Library",
     "UI Framework",
-    "Justd",
+    "Intelligence-UI",
     "React Aria",
     "React Aria Components",
     "Server Components",
@@ -134,25 +134,25 @@ export const metadata: Metadata = {
     "Laravel Inertia UI Kit",
     "Laravel Inertia UI Library",
     "Laravel Inertia UI Framework",
-    "Laravel Inertia Justd",
-    "Laravel Justd",
-    "Justd Components",
-    "Justd UI Components",
-    "Justd UI Kit",
-    "Justd UI Library",
-    "Justd UI Framework",
-    "Justd Laravel Inertia",
-    "Justd Laravel",
-    "Justd Inertia",
+    "Laravel Inertia Intelligence-UI",
+    "Laravel Intelligence-UI",
+    "Intelligence-UI Components",
+    "Intelligence-UI UI Components",
+    "Intelligence-UI UI Kit",
+    "Intelligence-UI UI Library",
+    "Intelligence-UI UI Framework",
+    "Intelligence-UI Laravel Inertia",
+    "Intelligence-UI Laravel",
+    "Intelligence-UI Inertia",
   ],
   manifest: "/manifest.json",
   authors: [
     {
-      name: "irsyadadl",
-      url: "https://x.com/irsyadadl",
+      name: "AdventureX",
+      url: "https://x.com/adventurex_plan",
     },
   ],
-  creator: "irsyadadl",
+  creator: "AdventureX",
 }
 
 export const viewport: Viewport = {

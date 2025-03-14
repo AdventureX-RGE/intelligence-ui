@@ -86,13 +86,13 @@ export function IconResources() {
               <IconDuplicateFill className="size-5" />
             </div>
             <h2 className="mt-4 max-w-md font-semibold text-3xl tracking-tight md:text-2xl">
-              Empower your design with Justd Icons
+              Empower your design with Intelligence-UI Icons
             </h2>
             <p className="mt-3 mb-6 text-pretty text-muted-fg leading-relaxed lg:text-lg">
-              Justd Icons is a powerful open-source SVG icon library with over{" "}
+              Intelligence-UI Icons is a powerful open-source SVG icon library with over{" "}
               <strong className="text-fg">1,191 symbols</strong>, and more added with every release.
               Designed to seamlessly integrate into any project, they work perfectly whether or not
-              you use Justd components.
+              you use Intelligence-UI components.
             </p>
             <InstallIcon />
           </div>

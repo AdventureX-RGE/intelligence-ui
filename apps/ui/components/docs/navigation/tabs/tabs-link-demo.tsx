@@ -6,7 +6,7 @@ const navs = [
   { url: "/", label: "Home" },
   { url: "/themes", label: "Themes" },
   { url: "/colors", label: "Colors" },
-  { url: "https://getjustd.com/icons", label: "Icons" },
+  { url: "https://ui.adventure-x.org/icons", label: "Icons" },
   { url: "https://irsyad.co/templates", label: "Templates" },
 ]
 
