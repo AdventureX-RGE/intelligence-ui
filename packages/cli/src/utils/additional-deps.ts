@@ -12,6 +12,7 @@ export const additionalDeps = async (
   packageManager: string,
   action: string,
 ) => {
+  // TODO： 后续需要抽出去
   const dependencies: Record<string, string[]> = {
     toast: ["sonner"],
     drawer: ["motion"],
@@ -27,10 +28,11 @@ export const additionalDeps = async (
     "visually-hidden": ["react-aria"],
   }
 
-  const dependency = dependencies[componentName]
+  const dependency = dependencies[componentName] || []
+
   const dependencyString = dependency.join(" ")
 
-  if (dependency) {
+  if (dependency.length > 0) {
     const installCommand = `${packageManager} ${action} ${dependencyString} --silent`
     const child = spawn(installCommand, {
       stdio: "ignore",

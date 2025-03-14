@@ -190,6 +190,7 @@ export async function add(options: {
   spinner.start("Installing dependencies.")
 
   try {
+    // TODO: 后续这里要改成配置，动态配置 hooks
     if (
       selectedComponents.some((component: string) =>
         ["popover", "dialog", "sidebar", "navbar", "command-menu", "number-field"].includes(
@@ -221,12 +222,14 @@ export async function add(options: {
         selectedComponents.map(async (componentName: string) => {
           try {
             const targetComponent = components.find((comp) => comp.name === componentName)
+
             if (!targetComponent && type === "intelligence-ui") {
               warn(`Component '${highlight(componentName)}' not found in local resources.`)
               return
             }
 
             const componentPath = getWriteComponentPath(config, componentName)
+
             if (fs.existsSync(componentPath) && !overwrite) {
               existingFiles.add(componentPath)
               return
