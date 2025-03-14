@@ -383,9 +383,9 @@ export async function init(flags: {
   spinner.succeed("Installation complete.")
 
   console.info("\n\nNot sure what to do next?")
-  console.info(`Visit our documentation at: ${highlight("https://getjustd.com")}`)
+  console.info(`Visit our documentation at: ${highlight("https://ui.adventure-x.org")}`)
 
   console.info("\nNow try to add some components to your project")
-  console.info(`by running: ${highlight("npx justd-cli@latest add")}`)
+  console.info(`by running: ${highlight("npx intelligence-cli@latest add")}`)
   spinner.stop()
 }

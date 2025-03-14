@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "dev": "pnpm --filter=@adventure-x/intelligence-ui dev",
     "build": "turbo build --filter=@adventure-x/intelligence-ui",
     "build:registry": "cd apps/ui && pnpm build:registry",
     "build:stubs": "cd apps/ui && build:stubs",
@@ -12,6 +13,7 @@
     "format": "pnpm format:ui && pnpm format:cli",
     "format:ui": "pnpm --filter=@adventure-x/intelligence-ui format",
     "format:cli": "pnpm --filter=@adventure-x/intelligence-cli format",
+    "test:cli": "cd packages/cli && pnpm test",
     "prepare": "husky"
   },
   "workspaces": [
