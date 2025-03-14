@@ -19,17 +19,17 @@ const config = {
   },
   async redirects() {
     return [
-      {
-        source: "/docs/:slug((?![12]\\.x/).*)",
-        missing: [
-          {
-            type: "header",
-            key: "x-no-redirect",
-          },
-        ],
-        destination: "/docs/:slug*",
-        permanent: false,
-      },
+      // {
+      //   source: "/docs/:slug((?![12]\\.x/).*)",
+      //   missing: [
+      //     {
+      //       type: "header",
+      //       key: "x-no-redirect",
+      //     },
+      //   ],
+      //   destination: "/docs/:slug*",
+      //   permanent: false,
+      // },
       {
         source: "/docs/components/layouts/aside",
         destination: "/docs/components/layouts/sidebar",

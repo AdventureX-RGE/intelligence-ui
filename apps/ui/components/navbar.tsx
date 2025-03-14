@@ -5,17 +5,14 @@ import { IconBrandJustdBlocks } from "@/components/icons/icon-brand-justd-blocks
 import { ResponsiveAside } from "@/components/responsive-aside"
 import { Keyboard } from "@/components/ui/keyboard"
 import { siteConfig } from "@/resources/config/site"
-import { cn } from "@/utils/classes"
 import { useMediaQuery } from "@/utils/use-media-query"
 import {
   IconBrandAdobe,
   IconBrandDiscord,
-  IconBrandFigma,
   IconBrandGithub,
   IconBrandJustd,
   IconBrandTailwindcss,
   IconBrandX,
-  IconChevronLgDown,
   IconColorPalette,
   IconColors,
   IconCube,
@@ -23,11 +20,10 @@ import {
   IconNotepad,
   IconSearch,
   IconWindowVisit,
-  IconWindowVisitFill,
 } from "justd-icons"
 import { LayoutGroup } from "motion/react"
 import { usePathname } from "next/navigation"
-import { Badge, Button, Link, Menu, Separator, buttonStyles } from "ui"
+import { Button, Link, Menu, Separator, buttonStyles } from "ui"
 import { CommandPalette } from "./command-palette"
 import { NavLink } from "./nav-item"
 import { ThemeSwitcher } from "./theme-switcher"
@@ -54,17 +50,16 @@ export function Navbar() {
                   <NavLink
                     isNextLink
                     isActive={
-                      pathname?.startsWith("/docs/2.x") &&
-                      !pathname?.includes("/docs/2.x/components")
+                      pathname?.startsWith("/docs") && !pathname?.includes("/docs/components")
                     }
-                    href="/docs/2.x/getting-started/introduction"
+                    href="/docs/getting-started/introduction"
                   >
                     Docs
                   </NavLink>
                   <NavLink
                     isNextLink
                     isActive={
-                      pathname?.startsWith("/docs/2.x/components") || pathname === "/components"
+                      pathname?.startsWith("/docs/components") || pathname === "/components"
                     }
                     href="/components"
                   >
@@ -80,13 +75,12 @@ export function Navbar() {
                   <NavLink href="/colors">Colors</NavLink>
 
                   <NavLink href="/blocks">Blocks</NavLink>
-                  <Menu>
+                  {/* <Menu>
                     <Menu.Trigger
                       className={cn(
-                        "group flex cursor-pointer items-center gap-x-2 py-3 text-muted-fg text-sm tracking-tight",
+                        "group flex cursor-pointer items-center gap-x-2 py-3 text-muted-fg text-sm tracking-tight"
                       )}
                     >
-                      <IconBrandJustdBlocks /> Premium Blocks
                       <IconChevronLgDown className="size-3 duration-200 group-pressed:rotate-180" />
                     </Menu.Trigger>
                     <Menu.Content
@@ -123,7 +117,7 @@ export function Navbar() {
                         </Menu.Item>
                       )}
                     </Menu.Content>
-                  </Menu>
+                  </Menu> */}
                 </div>
                 <div className="flex items-center gap-x-1">
                   <>
@@ -228,7 +222,7 @@ export function NavbarDropdown() {
             </Menu.Item>
             {/* <Menu.Content>
               <Menu.Item href="/docs/1.x/getting-started/introduction">1.x</Menu.Item>
-              <Menu.Item href="/docs/2.x/getting-started/introduction">2.x</Menu.Item>
+              <Menu.Item href="/docs/getting-started/introduction">2.x</Menu.Item>
             </Menu.Content> */}
           </Menu.Submenu>
           <Menu.Section title="Pages">
@@ -251,10 +245,6 @@ export function NavbarDropdown() {
             <Menu.Item href="/blocks">
               <IconWindowVisit />
               <Menu.Label>Blocks</Menu.Label>
-            </Menu.Item>
-            <Menu.Item target="_blank" href="https://blocks.getjustd.com">
-              <IconBrandJustdBlocks />
-              <Menu.Label>Premium Blocks</Menu.Label>
             </Menu.Item>
             <Menu.Item href="/icons">
               <IconBrandJustd />
@@ -304,7 +294,7 @@ export function NavbarDropdown() {
           <Menu.Item href="/docs/1.x/getting-started/introduction">
             1.x
           </Menu.Item>
-          <Menu.Item href="/docs/2.x/getting-started/introduction">
+          <Menu.Item href="/docs/getting-started/introduction">
             2.x
           </Menu.Item>
         </Menu.Content> */}
@@ -313,36 +303,30 @@ export function NavbarDropdown() {
   )
 }
 
-const premium = [
-  {
-    id: 1,
-    label: "Premium Blocks",
-    href: "https://blocks.getjustd.com",
-    icon: <IconBrandJustdBlocks />,
-    description: "Pre-designed, ready-to-use React components for seamless integration.",
-  },
-  {
-    id: 4,
-    label: "Templates",
-    href: "https://blocks.getjustd.com/templates",
-    icon: <IconBrandJustdBlocks />,
-    description: "Pre-designed, ready-to-use React components for seamless integration.",
-  },
-  {
-    id: 2,
-    label: "Premium Starter Kit",
-    href: "#",
-    icon: <IconWindowVisitFill />,
-    description:
-      "Get started quickly with a complete React project setup, including authentication.",
-    badge: "Coming soon",
-  },
-  {
-    id: 3,
-    label: "Figma",
-    href: "#",
-    icon: <IconBrandFigma />,
-    description: "Enhance your Figma designs with Justd components.",
-    badge: "Coming soon",
-  },
-]
+// const premium = [
+//   {
+//     id: 3,
+//     label: "Templates",
+//     href: "https://blocks.getjustd.com/templates",
+//     icon: <IconBrandJustdBlocks />,
+//     description:
+//       "Pre-designed, ready-to-use React components for seamless integration.",
+//   },
+//   {
+//     id: 1,
+//     label: "Premium Starter Kit",
+//     href: "#",
+//     icon: <IconWindowVisitFill />,
+//     description:
+//       "Get started quickly with a complete React project setup, including authentication.",
+//     badge: "Coming soon",
+//   },
+//   {
+//     id: 2,
+//     label: "Figma",
+//     href: "#",
+//     icon: <IconBrandFigma />,
+//     description: "Enhance your Figma designs with Justd components.",
+//     badge: "Coming soon",
+//   },
+// ];

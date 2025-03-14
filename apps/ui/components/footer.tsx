@@ -25,7 +25,6 @@ const navigation = {
       href: "https://x.com/intent/follow?screen_name=irsyadadl",
     },
     { name: "CLI", href: "https://github.com/justdlabs/cli" },
-    { name: "Premium Blocks", href: "https://blocks.getjustd.com" },
     { name: "Templates", href: "https://blocks.getjustd.com/templates" },
   ],
   extra: [

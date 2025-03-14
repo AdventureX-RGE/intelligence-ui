@@ -29,7 +29,7 @@ export function Blocks() {
             At a Glance
           </Heading>
           <Link
-            href="/docs/2.x/components/buttons/button"
+            href="/docs/components/buttons/button"
             className={buttonStyles({ size: "small", intent: "outline" })}
           >
             Show More <IconArrowRight />
