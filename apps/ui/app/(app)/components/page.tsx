@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { siteConfig } from "@/resources/config/site"
 import { source } from "@/utils/source"
-import { IconArrowRight, IconCube, IconPackage } from "Intelligence-UI-icons"
+import { IconArrowRight, IconCube, IconPackage } from "justd-icons"
 import type { Metadata } from "next"
 import { Link } from "ui"
 import { Container, Heading } from "ui"
