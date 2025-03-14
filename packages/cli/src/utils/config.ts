@@ -7,7 +7,7 @@ const configType = type({
   $schema: "string = 'https://ui.adventure-x.org/schema.json'",
   ui: "string",
   utils: "string",
-  gray: "string = 'zinc'",
+  gray: "string = 'default'",
   css: "string",
   "alias?": "string",
   language: "'typescript' | 'javascript' = 'typescript'",

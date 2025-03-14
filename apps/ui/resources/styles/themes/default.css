@@ -1,17 +1,18 @@
-@import "tailwindcss";
-@import "./code.css";
+/*
+* Uncomment the following line to use the Inter font when not working on a Next.js project.
+* @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+* Then replace var(--font-inter) to Inter
+*/
 
+@import "tailwindcss";
 @plugin 'tailwindcss-animate';
-@plugin '@tailwindcss/typography';
 @plugin 'tailwindcss-react-aria-components';
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif,
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: var(--font-geist-mono), "ui-monospace", "SFMono-Regular", "Menlo",
-    "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace";
-  --color-shiki-bg: var(--shiki-bg);
-  --color-shiki-border: var(--input);
+  --font-mono: "Geist Mono", "ui-monospace", "SFMono-Regular", "Menlo", "Monaco",
+    "Consolas", '"Liberation Mono"', '"Courier New"', "monospace";
 
   --color-border: var(--border);
   --color-input: var(--input);
@@ -56,20 +57,6 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
-
-  --animate-blink: blink 1.4s both infinite;
-
-  @keyframes blink {
-    0% {
-      opacity: 0.2;
-    }
-    20% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0.2;
-    }
-  }
 }
 
 @layer base {
@@ -184,6 +171,8 @@
   }
 }
 
+@variant dark (&:is(.dark *));
+
 @layer base {
   *,
   ::after,
@@ -194,10 +183,7 @@
   }
 
   * {
-    font-feature-settings: "cv11", "ss01";
-    font-variation-settings: "opsz" 850;
     text-rendering: optimizeLegibility;
-
     scrollbar-width: thin;
     scrollbar-color: var(--border) transparent;
   }
@@ -229,20 +215,4 @@
     background: var(--border);
     border-radius: 4px;
   }
-}
-
-@variant dark (&:is(.dark *));
-
-.scrollbar-hidden {
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
-  scrollbar-width: none; /* Firefox */
-  &::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
-  }
-}
-
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: var(--shiki-bg) !important;
 }

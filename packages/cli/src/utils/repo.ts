@@ -2,7 +2,6 @@ import { availableGrays } from "@/commands/change-gray"
 import { error } from "@/utils/logging"
 
 const REPO = "https://cdn.jsdelivr.net/gh/AdventureX-RGE/intelligence-ui/apps/ui"
-const CDN_REPO = "/resources/styles/themes/zinc.css"
 // const branchWorkingOn = isTailwind(3) ? "1.x" : "2.x"
 // const BRANCH = "main";
 

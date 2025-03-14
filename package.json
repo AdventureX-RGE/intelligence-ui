@@ -12,7 +12,7 @@
     "ui": "pnpm --filter=@adventure-x/intelligence-ui dev",
     "format": "pnpm format:ui && pnpm format:cli",
     "format:ui": "pnpm --filter=@adventure-x/intelligence-ui format",
-    "format:cli": "pnpm --filter=@adventure-x/intelligence-cli format",
+    "format:cli": "pnpm --filter=intelligence-cli format",
     "test:cli": "cd packages/cli && pnpm test",
     "prepare": "husky"
   },

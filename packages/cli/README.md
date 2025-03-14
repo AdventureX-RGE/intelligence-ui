@@ -83,6 +83,7 @@ The output will be like this:
 ? The specified CSS path 'src/app/globals.css' exists. Do you want to use this path? yes
 ? You will override the current theme "`zinc`" with others? yes
 ? Pick your desired base gray:
+  default
   zinc
   gray
 ❯ slate
