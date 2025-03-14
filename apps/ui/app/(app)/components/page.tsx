@@ -1,7 +1,7 @@
 import { Header } from "@/components/header"
 import { siteConfig } from "@/resources/config/site"
 import { source } from "@/utils/source"
-import { IconArrowRight, IconCube, IconPackage } from "justd-icons"
+import { IconArrowRight, IconCube, IconPackage } from "Intelligence-UI-icons"
 import type { Metadata } from "next"
 import { Link } from "ui"
 import { Container, Heading } from "ui"
@@ -60,17 +60,17 @@ export const metadata: Metadata = {
   title: "Components",
   description:
     "Over 50 accessible components, neatly grouped into sections. Guaranteed usability for all!",
-  metadataBase: new URL("https://getjustd.com"),
+  metadataBase: new URL("https://ui.adventure-x.org"),
   applicationName: siteConfig.name,
   keywords: [
     "Components",
-    "Justd Components",
+    "Intelligence-UI Components",
     "Tailwind CSS",
     "UI Components",
     "UI Kit",
     "UI Library",
     "UI Framework",
-    "Justd",
+    "Intelligence-UI",
     "Next.js 15",
     "React Aria",
     "React Aria Components",
@@ -85,16 +85,16 @@ export const metadata: Metadata = {
     "Laravel Inertia UI Kit",
     "Laravel Inertia UI Library",
     "Laravel Inertia UI Framework",
-    "Laravel Inertia Justd",
-    "Laravel Justd",
-    "Justd Components",
-    "Justd UI Components",
-    "Justd UI Kit",
-    "Justd UI Library",
-    "Justd UI Framework",
-    "Justd Laravel Inertia",
-    "Justd Laravel",
-    "Justd Inertia",
+    "Laravel Inertia Intelligence-UI",
+    "Laravel Intelligence-UI",
+    "Intelligence-UI Components",
+    "Intelligence-UI UI Components",
+    "Intelligence-UI UI Kit",
+    "Intelligence-UI UI Library",
+    "Intelligence-UI UI Framework",
+    "Intelligence-UI Laravel Inertia",
+    "Intelligence-UI Laravel",
+    "Intelligence-UI Inertia",
   ],
 }
 

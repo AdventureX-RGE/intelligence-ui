@@ -7,7 +7,7 @@ import { Container } from "ui"
 export const metadata: Metadata = {
   title: "Showcase",
   description: "A showcase of justd components, tools, and more.",
-  metadataBase: new URL("https://getjustd.com"),
+  metadataBase: new URL("https://ui.adventure-x.org"),
   applicationName: siteConfig.name,
 }
 
