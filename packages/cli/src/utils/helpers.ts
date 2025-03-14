@@ -1,12 +1,12 @@
-import fs from "node:fs";
-import { existsSync } from "node:fs";
-import path from "node:path";
-import { error, highlight, warningText } from "@/utils/logging";
-import type { Config } from "./config";
+import fs from "node:fs"
+import { existsSync } from "node:fs"
+import path from "node:path"
+import { error, highlight, warningText } from "@/utils/logging"
+import type { Config } from "./config"
 
 export function hasFolder(folderName: string): boolean {
-  const folderPath = path.join(process.cwd(), folderName);
-  return fs.existsSync(folderPath);
+  const folderPath = path.join(process.cwd(), folderName)
+  return fs.existsSync(folderPath)
 }
 
 /**
@@ -16,122 +16,97 @@ export function hasFolder(folderName: string): boolean {
  */
 export function possibilityCssPath(): string {
   if (isLaravel()) {
-    return "resources/css/app.css";
+    return "resources/css/app.css"
   }
   if (hasFolder("src") && !fs.existsSync("artisan") && isNextJs()) {
-    return "src/app/globals.css";
+    return "src/app/globals.css"
   }
   if (hasFolder("app") && isNextJs() && !fs.existsSync("artisan")) {
-    return "app/globals.css";
+    return "app/globals.css"
   }
   if (hasFolder("app") && !fs.existsSync("artisan") && isRemix()) {
-    return "app/tailwind.css";
+    return "app/tailwind.css"
   }
-  if (
-    hasFolder("src") &&
-    !fs.existsSync("artisan") &&
-    !isRemix() &&
-    !isNextJs()
-  ) {
-    return "src/index.css";
+  if (hasFolder("src") && !fs.existsSync("artisan") && !isRemix() && !isNextJs()) {
+    return "src/index.css"
   }
-  return "src/index.css";
+  return "src/index.css"
 }
 
 export function possibilityComponentsPath(): string {
   if (isLaravel()) {
-    return "resources/js/components";
+    return "resources/js/components"
   }
   if (hasFolder("src") && !fs.existsSync("artisan") && isNextJs()) {
-    return "src/components";
+    return "src/components"
   }
   if (hasFolder("app") && isNextJs() && !fs.existsSync("artisan")) {
-    return "components";
+    return "components"
   }
   if (hasFolder("app") && !fs.existsSync("artisan") && isRemix()) {
-    return "app/components";
+    return "app/components"
   }
-  if (
-    hasFolder("src") &&
-    !fs.existsSync("artisan") &&
-    !isRemix() &&
-    !isNextJs()
-  ) {
-    return "src/components";
+  if (hasFolder("src") && !fs.existsSync("artisan") && !isRemix() && !isNextJs()) {
+    return "src/components"
   }
-  return "components";
+  return "components"
 }
 
 export function possibilityUtilsPath(): string {
   if (isLaravel()) {
-    return "resources/js/utils";
+    return "resources/js/utils"
   }
   if (hasFolder("src") && !fs.existsSync("artisan") && isNextJs()) {
-    return "src/utils";
+    return "src/utils"
   }
   if (hasFolder("app") && isNextJs() && !fs.existsSync("artisan")) {
-    return "utils";
+    return "utils"
   }
   if (hasFolder("app") && !fs.existsSync("artisan") && isRemix()) {
-    return "app/utils";
+    return "app/utils"
   }
-  if (
-    hasFolder("src") &&
-    !fs.existsSync("artisan") &&
-    !isRemix() &&
-    !isNextJs()
-  ) {
-    return "src/utils";
+  if (hasFolder("src") && !fs.existsSync("artisan") && !isRemix() && !isNextJs()) {
+    return "src/utils"
   }
-  return "utils";
+  return "utils"
 }
 
 export function possibilityRootPath(): string {
   if (isLaravel()) {
-    return "resources/js";
+    return "resources/js"
   }
   if (hasFolder("src") && !fs.existsSync("artisan") && isNextJs()) {
-    return "src";
+    return "src"
   }
   if (hasFolder("app") && isNextJs() && !fs.existsSync("artisan")) {
-    return "app";
+    return "app"
   }
   if (hasFolder("app") && !fs.existsSync("artisan") && isRemix()) {
-    return "app";
+    return "app"
   }
-  if (
-    hasFolder("src") &&
-    !fs.existsSync("artisan") &&
-    !isRemix() &&
-    !isNextJs()
-  ) {
-    return "src";
+  if (hasFolder("src") && !fs.existsSync("artisan") && !isRemix() && !isNextJs()) {
+    return "src"
   }
-  return "app";
+  return "app"
 }
 
 export function possibilityRoutePath(): string {
   if (isLaravel()) {
-    return "resources/js/Pages";
+    return "resources/js/Pages"
   }
   if (hasFolder("src") && !fs.existsSync("artisan") && isNextJs()) {
-    return "src/app";
+    return "src/app"
   }
   if (hasFolder("app") && isNextJs() && !fs.existsSync("artisan")) {
-    return "app";
+    return "app"
   }
   if (hasFolder("app") && !fs.existsSync("artisan") && isRemix()) {
-    return "app";
+    return "app"
   }
-  if (
-    hasFolder("src") &&
-    !fs.existsSync("artisan") &&
-    !isRemix() &&
-    !isNextJs()
-  ) {
-    return "src/app";
+  if (hasFolder("src") && !fs.existsSync("artisan") && !isRemix() && !isNextJs()) {
+    return "src/app"
   }
-  return "src";
+  return "src"
 }
 
 export function isNextJs(): boolean {
@@ -139,7 +114,7 @@ export function isNextJs(): boolean {
     fs.existsSync("next.config.ts") ||
     fs.existsSync("next.config.js") ||
     fs.existsSync("next.config.mjs")
-  );
+  )
 }
 
 export function isTypescriptProject(dir: string = process.cwd()): boolean {
@@ -164,36 +139,31 @@ export function isTypescriptProject(dir: string = process.cwd()): boolean {
     "logs",
     "coverage",
     ".nyc_output",
-  ];
+  ]
 
   if (fs.existsSync(path.join(dir, "tsconfig.json"))) {
-    return true;
+    return true
   }
 
   const subdirs = fs
     .readdirSync(dir, { withFileTypes: true })
     .filter((entry) => entry.isDirectory() && !ignoredDirs.includes(entry.name))
-    .map((entry) => path.join(dir, entry.name));
+    .map((entry) => path.join(dir, entry.name))
 
-  return subdirs.some((subdir) =>
-    fs.existsSync(path.join(subdir, "tsconfig.json"))
-  );
+  return subdirs.some((subdir) => fs.existsSync(path.join(subdir, "tsconfig.json")))
 }
 
 export function isRemix(): boolean {
-  const packageJsonPath = path.join(process.cwd(), "package.json");
+  const packageJsonPath = path.join(process.cwd(), "package.json")
 
   if (existsSync(packageJsonPath)) {
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-    const { dependencies = {}, devDependencies = {} } = packageJson;
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"))
+    const { dependencies = {}, devDependencies = {} } = packageJson
 
-    return (
-      "@remix-run/react" in dependencies ||
-      "@remix-run/react" in devDependencies
-    );
+    return "@remix-run/react" in dependencies || "@remix-run/react" in devDependencies
   }
 
-  return false;
+  return false
 }
 
 /**
@@ -201,24 +171,23 @@ export function isRemix(): boolean {
  * @param version
  */
 export function isTailwind(version: number): boolean {
-  const packageJsonPath = path.join(process.cwd(), "package.json");
+  const packageJsonPath = path.join(process.cwd(), "package.json")
 
   if (fs.existsSync(packageJsonPath)) {
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-    const { dependencies = {}, devDependencies = {} } = packageJson;
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"))
+    const { dependencies = {}, devDependencies = {} } = packageJson
 
-    const tailwindVersion =
-      dependencies.tailwindcss || devDependencies.tailwindcss;
+    const tailwindVersion = dependencies.tailwindcss || devDependencies.tailwindcss
 
     if (tailwindVersion) {
       // Remove any non-numeric prefix (e.g., ^ or ~)
-      const cleanVersion = tailwindVersion.replace(/^\D*/, "");
-      const majorVersion = Number.parseInt(cleanVersion.split(".")[0], 10);
-      return majorVersion === version;
+      const cleanVersion = tailwindVersion.replace(/^\D*/, "")
+      const majorVersion = Number.parseInt(cleanVersion.split(".")[0], 10)
+      return majorVersion === version
     }
   }
 
-  return false;
+  return false
 }
 
 /**
@@ -226,17 +195,17 @@ export function isTailwind(version: number): boolean {
  *  @returns boolean
  */
 export function isTailwindInstalled(): boolean {
-  const packageJsonPath = path.join(process.cwd(), "package.json");
-  console.log(packageJsonPath);
+  const packageJsonPath = path.join(process.cwd(), "package.json")
+  console.log(packageJsonPath)
 
   if (existsSync(packageJsonPath)) {
-    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"));
-    const { dependencies = {}, devDependencies = {} } = packageJson;
+    const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"))
+    const { dependencies = {}, devDependencies = {} } = packageJson
 
-    return "tailwindcss" in dependencies || "tailwindcss" in devDependencies;
+    return "tailwindcss" in dependencies || "tailwindcss" in devDependencies
   }
 
-  return false;
+  return false
 }
 
 /**
@@ -244,7 +213,7 @@ export function isTailwindInstalled(): boolean {
  *  @returns boolean
  */
 export function isLaravel(): boolean {
-  return fs.existsSync(path.resolve(process.cwd(), "artisan"));
+  return fs.existsSync(path.resolve(process.cwd(), "artisan"))
 }
 
 /**
@@ -252,43 +221,31 @@ export function isLaravel(): boolean {
  *  @returns string
  */
 export function getUIPathFromConfig() {
-  const configFilePath = path.join(process.cwd(), "intelligence-ui.json");
+  const configFilePath = path.join(process.cwd(), "intelligence-ui.json")
   if (!fs.existsSync(configFilePath)) {
     error(
       `${warningText("intelligence-ui.json not found")}. Please run ${highlight(
-        "npx intelligence-cli@latest init"
-      )} to initialize the project.`
-    );
-    return;
+        "npx intelligence-cli@latest init",
+      )} to initialize the project.`,
+    )
+    return
   }
 
-  const config = JSON.parse(fs.readFileSync(configFilePath, "utf-8"));
-  return config.ui || `${possibilityComponentsPath()}/ui`;
+  const config = JSON.parse(fs.readFileSync(configFilePath, "utf-8"))
+  return config.ui || `${possibilityComponentsPath()}/ui`
 }
 
-export const justdConfigFile = path.resolve(
-  process.cwd(),
-  "intelligence-ui.json"
-);
+export const justdConfigFile = path.resolve(process.cwd(), "intelligence-ui.json")
 
 export const doesProjectExist = (): boolean => {
-  const hasPackageJson = fs.existsSync("package.json");
-  return (
-    hasPackageJson ||
-    isNextJs() ||
-    isLaravel() ||
-    isRemix() ||
-    isTailwindInstalled()
-  );
-};
+  const hasPackageJson = fs.existsSync("package.json")
+  return hasPackageJson || isNextJs() || isLaravel() || isRemix() || isTailwindInstalled()
+}
 
-export const getCorrectFileExtension = (
-  language: Config["language"],
-  fileName: string
-) => {
+export const getCorrectFileExtension = (language: Config["language"], fileName: string) => {
   if (language === "javascript") {
-    return fileName.replace(".ts", ".js");
+    return fileName.replace(".ts", ".js")
   }
 
-  return fileName;
-};
+  return fileName
+}
