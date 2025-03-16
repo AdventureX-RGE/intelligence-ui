@@ -312,61 +312,6 @@ importers:
         specifier: ^5.7.3
         version: 5.8.2
 
-  template/intelligence-nextjs:
-    dependencies:
-      justd-icons:
-        specifier: ^1.10.25
-        version: 1.10.25(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      next:
-        specifier: 15.2.2
-        version: 15.2.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      react:
-        specifier: ^19.0.0
-        version: 19.0.0
-      react-aria-components:
-        specifier: ^1.7.1
-        version: 1.7.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      react-dom:
-        specifier: ^19.0.0
-        version: 19.0.0(react@19.0.0)
-      tailwindcss-react-aria-components:
-        specifier: ^2.0.0
-        version: 2.0.0(tailwindcss@4.0.13)
-    devDependencies:
-      '@tailwindcss/postcss':
-        specifier: ^4
-        version: 4.0.13
-      '@types/node':
-        specifier: ^20
-        version: 20.17.24
-      '@types/react':
-        specifier: ^19
-        version: 19.0.10
-      '@types/react-dom':
-        specifier: ^19
-        version: 19.0.4(@types/react@19.0.10)
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-      next-themes:
-        specifier: ^0.4.6
-        version: 0.4.6(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
-      tailwind-merge:
-        specifier: ^3.0.2
-        version: 3.0.2
-      tailwind-variants:
-        specifier: ^0.3.1
-        version: 0.3.1(tailwindcss@4.0.13)
-      tailwindcss:
-        specifier: ^4
-        version: 4.0.13
-      tailwindcss-animate:
-        specifier: ^1.0.7
-        version: 1.0.7(tailwindcss@4.0.13)
-      typescript:
-        specifier: ^5
-        version: 5.8.2
-
 packages:
 
   '@alloc/quick-lru@5.2.0':
@@ -2219,9 +2164,6 @@ packages:
 
   '@types/node@12.20.55':
     resolution: {integrity: sha512-J8xLz7q2OFulZ2cyGTLE1TbbZcjpno7FaN6zdJNrgAdrJ+DZzh/uFR6YrTb4C+nXakvud8Q4+rbhoIWlYQbUFQ==}
-
-  '@types/node@20.17.24':
-    resolution: {integrity: sha512-d7fGCyB96w9BnWQrOsJtpyiSaBcAYYr75bnK6ZRjDbql2cGLj/3GsL5OYmLPNq76l7Gf2q4Rv9J2o6h5CrD9sA==}
 
   '@types/node@22.13.10':
     resolution: {integrity: sha512-I6LPUvlRH+O6VRUqYOcMudhaIdUVWfsjnZavnsraHvpBwaEyMN29ry+0UVJhImYL16xsscu0aske3yA+uPOWfw==}
@@ -4806,9 +4748,6 @@ packages:
     engines: {node: '>=0.8.0'}
     hasBin: true
 
-  undici-types@6.19.8:
-    resolution: {integrity: sha512-ve2KP6f/JnbPBFyobGHuerC9g1FYGn/F8n1LWTwNxCEzd6IfqTwUQcNXgEtmmQ6DlRrC1hrSrBnCZPokRrDHjw==}
-
   undici-types@6.20.0:
     resolution: {integrity: sha512-Ny6QZ2Nju20vw1SRHe3d9jVu6gJ+4e3+MMpqu7pqE5HT6WsTSlce++GQmK5UXS8mzV8DSYHrQH+Xrf2jVcuKNg==}
 
@@ -7311,10 +7250,6 @@ snapshots:
 
   '@types/node@12.20.55': {}
 
-  '@types/node@20.17.24':
-    dependencies:
-      undici-types: 6.19.8
-
   '@types/node@22.13.10':
     dependencies:
       undici-types: 6.20.0
@@ -9214,31 +9149,6 @@ snapshots:
       - '@babel/core'
       - babel-plugin-macros
 
-  next@15.2.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
-    dependencies:
-      '@next/env': 15.2.2
-      '@swc/counter': 0.1.3
-      '@swc/helpers': 0.5.15
-      busboy: 1.6.0
-      caniuse-lite: 1.0.30001704
-      postcss: 8.4.31
-      react: 19.0.0
-      react-dom: 19.0.0(react@19.0.0)
-      styled-jsx: 5.1.6(react@19.0.0)
-    optionalDependencies:
-      '@next/swc-darwin-arm64': 15.2.2
-      '@next/swc-darwin-x64': 15.2.2
-      '@next/swc-linux-arm64-gnu': 15.2.2
-      '@next/swc-linux-arm64-musl': 15.2.2
-      '@next/swc-linux-x64-gnu': 15.2.2
-      '@next/swc-linux-x64-musl': 15.2.2
-      '@next/swc-win32-arm64-msvc': 15.2.2
-      '@next/swc-win32-x64-msvc': 15.2.2
-      sharp: 0.33.5
-    transitivePeerDependencies:
-      - '@babel/core'
-      - babel-plugin-macros
-
   normalize-package-data@6.0.2:
     dependencies:
       hosted-git-info: 7.0.2
@@ -10358,8 +10268,6 @@ snapshots:
 
   uglify-js@3.19.3:
     optional: true
-
-  undici-types@6.19.8: {}
 
   undici-types@6.20.0: {}
 
