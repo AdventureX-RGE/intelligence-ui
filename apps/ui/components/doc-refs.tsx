@@ -9,8 +9,8 @@ import {
   IconBrandFramer,
   IconBrandGithub,
   IconBrandJustd,
-  IconChartBar,
   IconBrandNpm,
+  IconChartBar,
 } from "justd-icons"
 import { ListBox, ListBoxItem } from "react-aria-components"
 

@@ -1,16 +1,14 @@
 import { DocRefs } from "@/components/doc-refs"
-import { IconBrandJustdBlocks } from "@/components/icons/icon-brand-justd-blocks"
 import { Mdx } from "@/components/mdx"
 import { Pager } from "@/components/pager"
 import { Toc } from "@/components/toc"
 import { siteConfig } from "@/resources/config/site"
 import { title } from "@/resources/lib/utils"
 import { source } from "@/utils/source"
-import { IconArrowUpRight } from "justd-icons"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { twJoin } from "tailwind-merge"
-import { Badge, Card, Link } from "ui"
+import { Badge } from "ui"
 
 export interface DocPageProps {
   params: Promise<{

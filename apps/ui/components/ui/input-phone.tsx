@@ -135,40 +135,42 @@ interface InputPhoneRef {
   getPhoneNumber: () => string | undefined
 }
 
-const InputPhone = React.forwardRef<InputPhoneRef, InputPhoneProps>(({ value = null, onChange }, ref) => {
-  const [selectedKey, setSelectedKey] = useState<Key | null>(value)
+const InputPhone = React.forwardRef<InputPhoneRef, InputPhoneProps>(
+  ({ value = null, onChange }, ref) => {
+    const [selectedKey, setSelectedKey] = useState<Key | null>(value)
 
-  React.useImperativeHandle(ref, () => {
-    return {
-      getPhoneNumber: () => {
-        const country = COUNTRIES.find((country) => country.id === selectedKey)
-        return country?.number
-      },
-    }
-  })
+    React.useImperativeHandle(ref, () => {
+      return {
+        getPhoneNumber: () => {
+          const country = COUNTRIES.find((country) => country.id === selectedKey)
+          return country?.number
+        },
+      }
+    })
 
-  return (
-    <ComboBox
-      className="w-[100px]"
-      label="Users"
-      isRequired
-      selectedKey={selectedKey}
-      onSelectionChange={(key) => {
-        setSelectedKey(key)
-        onChange?.(key)
-      }}
-    >
-      <ComboBox.Input disabled />
+    return (
+      <ComboBox
+        className="w-[100px]"
+        label="Users"
+        isRequired
+        selectedKey={selectedKey}
+        onSelectionChange={(key) => {
+          setSelectedKey(key)
+          onChange?.(key)
+        }}
+      >
+        <ComboBox.Input disabled />
 
-      <ComboBox.List items={COUNTRIES} className="min-w-3xs">
-        {(item) => (
-          <ComboBox.Option id={item.id} textValue={`${item.flag} (${item.number})`}>
-            <ComboBox.Label>{`${item.flag} ${item.name} (${item.number})`}</ComboBox.Label>
-          </ComboBox.Option>
-        )}
-      </ComboBox.List>
-    </ComboBox>
-  )
-})
+        <ComboBox.List items={COUNTRIES} className="min-w-3xs">
+          {(item) => (
+            <ComboBox.Option id={item.id} textValue={`${item.flag} (${item.number})`}>
+              <ComboBox.Label>{`${item.flag} ${item.name} (${item.number})`}</ComboBox.Label>
+            </ComboBox.Option>
+          )}
+        </ComboBox.List>
+      </ComboBox>
+    )
+  },
+)
 
-export {InputPhone}
+export { InputPhone }
