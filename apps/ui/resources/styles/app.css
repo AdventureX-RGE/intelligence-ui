@@ -38,6 +38,7 @@
   --color-success-fg: var(--success-fg);
 
   --color-danger: var(--danger);
+  --color-danger-2: var(--danger-2);
   --color-danger-fg: var(--danger-fg);
 
   --color-warning: var(--warning);
