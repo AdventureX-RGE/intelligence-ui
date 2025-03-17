@@ -27,7 +27,7 @@ const buttonStyles = tv({
         "outline-primary [--btn-bg:theme(--color-primary/95%)] [--btn-border:var(--color-primary)] [--btn-fg:var(--color-primary-fg)] dark:[--btn-bg:theme(--color-primary/90%)]",
         "[--btn-bg-hovered:theme(--color-primary/87%)] [--btn-border-hovered:theme(--color-primary/87%)] dark:[--btn-bg-hovered:theme(--color-primary)] dark:[--btn-border-hovered:theme(--color-primary)]",
         "inset-shadow-primary-fg/20 pressed:inset-shadow-primary-fg/20 hover:inset-shadow-primary-fg/25",
-        "dark:hover:[background:radial-gradient(54.64%_100%_at_50.43%_100%,#EFC7A5_0%,#F48529_100%)]"
+        "dark:hover:[background:radial-gradient(54.64%_100%_at_50.43%_100%,#EFC7A5_0%,#F48529_100%)]",
       ],
       secondary: [
         "[--btn-bg:theme(--color-secondary/95%)] [--btn-border:theme(--color-secondary-fg/10%)] [--btn-fg:var(--color-secondary-fg)] dark:[--btn-bg:theme(--color-secondary/85%)] dark:[--btn-border:theme(--color-secondary-fg/7%)]",
@@ -48,7 +48,7 @@ const buttonStyles = tv({
         "dark:[--btn-danger-hovered:color-mix(in_oklab,var(--color-danger)_96%,white_4%)]",
         "[--btn-bg-hovered:var(--btn-danger-hovered)] [--btn-border-hovered:var(--btn-danger-hovered)]",
         "inset-shadow-danger-fg/30 pressed:inset-shadow-danger-fg/30 hover:inset-shadow-danger-fg/35",
-        "dark:hover:[background:radial-gradient(52.06%_104.69%_at_50.45%_100%,#D43333_0%,#7F1D1D_100%)]"
+        "dark:hover:[background:radial-gradient(52.06%_104.69%_at_50.45%_100%,#D43333_0%,#7F1D1D_100%)]",
       ],
       outline: [
         "inset-ring-0 inset-shadow-none pressed:bg-secondary [--btn-border:var(--color-border)] hover:bg-secondary",
