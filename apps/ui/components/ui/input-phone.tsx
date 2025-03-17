@@ -136,7 +136,7 @@ interface InputPhoneRef {
 }
 
 const InputPhone = React.forwardRef<InputPhoneRef, InputPhoneProps>(
-  ({ value = null, onChange }, ref) => {
+  ({ value = null, onChange, isRequired = true }, ref) => {
     const [selectedKey, setSelectedKey] = useState<Key | null>(value)
 
     React.useImperativeHandle(ref, () => {
@@ -151,7 +151,7 @@ const InputPhone = React.forwardRef<InputPhoneRef, InputPhoneProps>(
     return (
       <ComboBox
         className="w-[100px]"
-        label="Users"
+        label="Phone Number"
         isRequired
         selectedKey={selectedKey}
         onSelectionChange={(key) => {
