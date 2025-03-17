@@ -1,5 +1,5 @@
 "use client"
-import { useState } from "react"
+import React, { useState } from "react"
 import type { Key } from "react-aria-components"
 import { ComboBox } from "ui"
 
@@ -131,8 +131,21 @@ interface InputPhoneProps {
   isRequired?: boolean
 }
 
-export function InputPhone({ value = null, onChange }: InputPhoneProps) {
+interface InputPhoneRef {
+  getPhoneNumber: () => string | undefined
+}
+
+const InputPhone = React.forwardRef<InputPhoneRef, InputPhoneProps>(({ value = null, onChange }, ref) => {
   const [selectedKey, setSelectedKey] = useState<Key | null>(value)
+
+  React.useImperativeHandle(ref, () => {
+    return {
+      getPhoneNumber: () => {
+        const country = COUNTRIES.find((country) => country.id === selectedKey)
+        return country?.number
+      },
+    }
+  })
 
   return (
     <ComboBox
@@ -156,4 +169,6 @@ export function InputPhone({ value = null, onChange }: InputPhoneProps) {
       </ComboBox.List>
     </ComboBox>
   )
-}
+})
+
+export {InputPhone}
