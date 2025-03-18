@@ -19,6 +19,10 @@
   --color-ring: var(--ring);
 
   --color-bg: var(--bg);
+  --color-bg-1: var(--bg-1);
+  --color-bg-2: var(--bg-2);
+  --color-bg-3:var(--bg-3);
+  --color-bg-4: var(--bg-4);
   --color-fg: var(--fg);
 
   --color-primary: var(--primary);
@@ -34,6 +38,7 @@
   --color-success-fg: var(--success-fg);
 
   --color-danger: var(--danger);
+  --color-danger-2: var(--danger-2);
   --color-danger-fg: var(--danger-fg);
 
   --color-warning: var(--warning);
@@ -75,6 +80,11 @@
 @layer base {
   :root {
     --bg: oklch(1 0 0);
+    --bg-1: oklch(27.39% 0.0055 286.03);
+    --bg-2: oklch(41.39% 0.0049 286.18);
+    --bg-3: oklch(41.39% 0.0049 286.18);
+    --bg-4: oklch(70.57% 0.0144 286.02);
+
 
     --shiki-bg: var(--bg);
     --shiki-light: var(--shiki-bg);
@@ -138,6 +148,11 @@
     --shiki-dark: var(--shiki-bg);
 
     --bg: oklch(0.091 0.005 285.823);
+    --bg-1: oklch(27.39% 0.0055 286.03);
+    --bg-2: oklch(41.39% 0.0049 286.18);
+    --bg-3: oklch(41.39% 0.0049 286.18);
+    --bg-4: oklch(70.57% 0.0144 286.02);
+
     --fg: oklch(0.985 0 0);
 
     --primary: oklch(72.61% 0.1663 54.4);
@@ -166,7 +181,7 @@
     --danger-fg: oklch(0.971 0.013 17.38);
 
     --border: oklch(0.27 0.013 285.805);
-    --input: oklch(0.29 0.013 285.805);
+    --input: oklch(0.320 0.013 285.805);
     --ring: oklch(72.61% 0.1663 54.4);
 
     --navbar: oklch(0.17 0.006 285.885);

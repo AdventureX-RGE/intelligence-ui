@@ -20,6 +20,7 @@
   --color-ring: var(--ring);
 
   --color-bg: var(--bg);
+  --color-bg-1: var(--bg-1);
   --color-fg: var(--fg);
 
   --color-primary: var(--primary);
@@ -62,6 +63,7 @@
 @layer base {
   :root {
     --bg: oklch(1 0 0);
+    --bg-1: oklch(27.39% 0.0055 286.03);
 
     --shiki-bg: var(--bg);
     --shiki-light: var(--shiki-bg);
@@ -125,6 +127,7 @@
     --shiki-dark: var(--shiki-bg);
 
     --bg: oklch(0.091 0.005 285.823);
+    --bg-1: oklch(27.39% 0.0055 286.03);
     --fg: oklch(0.985 0 0);
 
     --primary: oklch(72.61% 0.1663 54.4);

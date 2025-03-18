@@ -9,6 +9,7 @@ import {
   IconBrandFramer,
   IconBrandGithub,
   IconBrandJustd,
+  IconBrandNpm,
   IconChartBar,
 } from "justd-icons"
 import { ListBox, ListBoxItem } from "react-aria-components"
@@ -55,6 +56,10 @@ export function DocRefs({ references }: { references: string[] }) {
       case url.includes("embla-carousel"):
         title = "Props"
         icon = IconEmblaCarousel
+        break
+      case url.includes("npm"):
+        title = "NPM"
+        icon = IconBrandNpm
         break
       default:
         icon = () => null

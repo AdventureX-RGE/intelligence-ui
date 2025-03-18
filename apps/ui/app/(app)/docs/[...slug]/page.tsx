@@ -1,16 +1,14 @@
 import { DocRefs } from "@/components/doc-refs"
-import { IconBrandJustdBlocks } from "@/components/icons/icon-brand-justd-blocks"
 import { Mdx } from "@/components/mdx"
 import { Pager } from "@/components/pager"
 import { Toc } from "@/components/toc"
 import { siteConfig } from "@/resources/config/site"
 import { title } from "@/resources/lib/utils"
 import { source } from "@/utils/source"
-import { IconArrowUpRight } from "justd-icons"
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import { twJoin } from "tailwind-merge"
-import { Badge, Card, Link } from "ui"
+import { Badge } from "ui"
 
 export interface DocPageProps {
   params: Promise<{
@@ -134,26 +132,7 @@ export default async function Page(props: DocPageProps) {
 
           <Toc className="mt-4 block sm:mt-8 xl:hidden" items={page.data.toc} />
           <Mdx code={page.data.body} />
-          <Link
-            target="_blank"
-            className="not-prose group relative inset-ring inset-ring-blue-300/30 my-6 flex rounded-xl bg-blue-500/10 p-2"
-            href="https://blocks.getjustd.com"
-          >
-            <div className="flex items-start gap-x-2">
-              <div className="inset-ring inset-ring-fg/10 grid size-10 place-content-center rounded-sm bg-blue-500/20">
-                <IconBrandJustdBlocks className="size-8" />
-              </div>
-              <Card.Header className="p-0">
-                <Card.Title className="sm:text-base/6">Get premium Blocks</Card.Title>
-                <Card.Description className="max-w-md">
-                  Create stunning, professional-grade layouts that not only save time but also
-                  elevate the quality of your projects.
-                </Card.Description>
-              </Card.Header>
-            </div>
 
-            <IconArrowUpRight className="-translate-y-1/2 absolute top-1/2 right-6 hidden size-4 text-blue-500 group-hover:block" />
-          </Link>
           <Pager className="pt-3" tree={source.pageTree} url={page.url} />
         </main>
       </div>
