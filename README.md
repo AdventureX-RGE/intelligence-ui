@@ -6,7 +6,7 @@ Intelligence-UI 是一套轻松易用的 React 组件库，基于 [React Aria Co
 
 ## 开发前必看
 
-本项目是在[Intelligence-UI](https://github.com/irsyadadl/justd/)的基础上开发的，这是一个类似于 shadcn-ui 的组件库
+本项目是在[Justd](https://github.com/irsyadadl/justd/)的基础上开发的，这是一个类似于 shadcn-ui 的组件库
 
 在原作者的基础上，我做了如下几点修改：
 
