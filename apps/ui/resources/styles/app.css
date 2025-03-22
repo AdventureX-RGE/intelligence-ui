@@ -21,7 +21,7 @@
   --color-bg: var(--bg);
   --color-bg-1: var(--bg-1);
   --color-bg-2: var(--bg-2);
-  --color-bg-3:var(--bg-3);
+  --color-bg-3: var(--bg-3);
   --color-bg-4: var(--bg-4);
   --color-fg: var(--fg);
 
@@ -68,9 +68,11 @@
     0% {
       opacity: 0.2;
     }
+
     20% {
       opacity: 1;
     }
+
     100% {
       opacity: 0.2;
     }
@@ -147,7 +149,7 @@
     --shiki-bg: #09090b;
     --shiki-dark: var(--shiki-bg);
 
-    --bg: oklch(0.091 0.005 285.823);
+    --bg: #000000;
     --bg-1: oklch(27.39% 0.0055 286.03);
     --bg-2: oklch(41.39% 0.0049 286.18);
     --bg-3: oklch(41.39% 0.0049 286.18);
@@ -181,7 +183,7 @@
     --danger-fg: oklch(0.971 0.013 17.38);
 
     --border: oklch(0.27 0.013 285.805);
-    --input: oklch(0.320 0.013 285.805);
+    --input: #a1a1aa;
     --ring: oklch(72.61% 0.1663 54.4);
 
     --navbar: oklch(0.17 0.006 285.885);
@@ -200,6 +202,7 @@
 }
 
 @layer base {
+
   *,
   ::after,
   ::before,
@@ -249,10 +252,14 @@
 @variant dark (&:is(.dark *));
 
 .scrollbar-hidden {
-  -ms-overflow-style: none; /* Internet Explorer and Edge */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer and Edge */
+  scrollbar-width: none;
+
+  /* Firefox */
   &::-webkit-scrollbar {
-    display: none; /* Safari and Chrome */
+    display: none;
+    /* Safari and Chrome */
   }
 }
 
