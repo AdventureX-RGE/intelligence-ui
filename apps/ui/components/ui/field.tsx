@@ -56,7 +56,9 @@ const Description = ({ ref, className, ...props }: DescriptionProps) => {
       ref={ref}
       {...props}
       slot="description"
-      className={description({ className: isWarning ? "text-warning" : className })}
+      className={description({
+        className: isWarning ? "text-warning" : className,
+      })}
     />
   )
 }
@@ -123,11 +125,11 @@ const Input = ({ className, ref, ...props }: InputProps) => {
       {...props}
       className={composeTailwindRenderProps(
         className,
-        "w-full min-w-0 bg-transparent px-2.5 py-2 text-base text-fg placeholder-muted-fg outline-hidden data-focused:outline-hidden sm:text-sm/6 [&::-ms-reveal]:hidden [&::-webkit-search-cancel-button]:hidden [&:not(:focus):not(:placeholder-shown)]:bg-bg-3",
+        "w-full min-w-0 bg-(--color-bg) px-2.5 py-2 text-base text-fg placeholder-muted-fg outline-hidden data-focused:outline-hidden sm:text-sm/6 [&::-ms-reveal]:hidden [&::-webkit-search-cancel-button]:hidden",
       )}
     />
   )
 }
 
-export type { FieldProps, InputProps, FieldErrorProps }
+export type { FieldErrorProps, FieldProps, InputProps }
 export { Description, FieldError, FieldGroup, Input, Label }

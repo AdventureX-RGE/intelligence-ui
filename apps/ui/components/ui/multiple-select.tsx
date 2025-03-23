@@ -28,7 +28,7 @@ const multiSelectStyles = tv({
   slots: {
     multiSelectField: "group flex w-full min-w-80 flex-col",
     multiSelect: [
-      "relative flex min-h-10 flex-row flex-wrap items-center rounded-lg border px-1 shadow-xs transition",
+      "relative flex min-h-10 flex-row flex-wrap items-center rounded-lg border bg-(--color-bg) px-1 shadow-xs transition",
       "has-[input[data-focused=true]]:border-ring/70",
       "has-[input[data-invalid=true][data-focused=true]]:border-blue-500",
       "has-[input[data-invalid=true]]:border-danger",

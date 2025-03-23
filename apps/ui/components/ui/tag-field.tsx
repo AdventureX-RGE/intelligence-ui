@@ -15,7 +15,7 @@ import type { RestrictedIntent, TagGroupProps } from "./tag-group"
 import { Tag, TagGroup, TagList } from "./tag-group"
 
 const tagFieldsStyles = tv({
-  base: ["relative flex min-h-10 flex-row flex-wrap items-center transition"],
+  base: ["relative flex min-h-10 flex-row flex-wrap items-center bg-(--color-bg) transition"],
   variants: {
     appearance: {
       outline: [
