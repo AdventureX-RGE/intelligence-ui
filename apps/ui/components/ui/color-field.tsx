@@ -45,7 +45,7 @@ const ColorField = ({
         "**:data-[slot=color-swatch]:-ml-0.5 group flex w-full flex-col gap-y-1",
       )}
     >
-      {label && <Label>{label}</Label>}
+      {label && <Label isRequired={props.isRequired}>{label}</Label>}
       <FieldGroup data-loading={isLoading ? "true" : undefined}>
         {prefix && typeof prefix === "string" ? (
           <span className="ml-2 text-muted-fg">{prefix}</span>

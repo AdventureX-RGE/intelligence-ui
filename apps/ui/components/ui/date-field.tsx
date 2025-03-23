@@ -34,7 +34,7 @@ const DateField = <T extends DateValue>({
       {...props}
       className={composeTailwindRenderProps(props.className, "group flex flex-col gap-y-1.5")}
     >
-      {label && <Label>{label}</Label>}
+      {label && <Label isRequired={props.isRequired}>{label}</Label>}
       <FieldGroup>
         {prefix && typeof prefix === "string" ? (
           <span className="ml-2 text-muted-fg">{prefix}</span>
