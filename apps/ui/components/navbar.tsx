@@ -238,10 +238,10 @@ export function NavbarDropdown() {
               <IconColors />
               <Menu.Label>Colors</Menu.Label>
             </Menu.Item>
-            <Menu.Item href="/themes">
+            {/* <Menu.Item href="/themes">
               <IconColorPalette />
               <Menu.Label>Themes</Menu.Label>
-            </Menu.Item>
+            </Menu.Item> */}
             <Menu.Item href="/blocks">
               <IconWindowVisit />
               <Menu.Label>Blocks</Menu.Label>

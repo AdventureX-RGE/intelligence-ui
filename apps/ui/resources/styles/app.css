@@ -6,10 +6,10 @@
 @plugin 'tailwindcss-react-aria-components';
 
 @theme {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif,
-    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-mono: var(--font-geist-mono), "ui-monospace", "SFMono-Regular", "Menlo",
-    "Monaco", "Consolas", '"Liberation Mono"', '"Courier New"', "monospace";
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono: var(--font-geist-mono), "ui-monospace", "SFMono-Regular", "Menlo", "Monaco",
+    "Consolas", '"Liberation Mono"', '"Courier New"', "monospace";
   --color-shiki-bg: var(--shiki-bg);
   --color-shiki-border: var(--input);
 
@@ -56,6 +56,14 @@
   --color-sidebar: var(--sidebar);
   --color-sidebar-fg: var(--sidebar-fg);
 
+  --color-linear-0: var(--linear-0);
+  --color-linear-1: var(--linear-1);
+  --color-linear-2: var(--linear-2);
+  --color-linear-3: var(--linear-3);
+  --color-linear-4: var(--linear-4);
+  --color-linear-5: var(--linear-5);
+  --color-linear-6: var(--linear-6);
+
   --color-chart-1: var(--chart-1);
   --color-chart-2: var(--chart-2);
   --color-chart-3: var(--chart-3);
@@ -86,7 +94,6 @@
     --bg-2: oklch(41.39% 0.0049 286.18);
     --bg-3: oklch(41.39% 0.0049 286.18);
     --bg-4: oklch(70.57% 0.0144 286.02);
-
 
     --shiki-bg: var(--bg);
     --shiki-light: var(--shiki-bg);
@@ -137,6 +144,14 @@
     --radius-3xl: calc(var(--radius-lg) * 2);
     --radius-4xl: calc(var(--radius-lg) * 3);
 
+    --linear-0: oklch(26.16% 0.0512 55.52);
+    --linear-1: oklch(36.55% 0.0778 55.57);
+    --linear-2: oklch(68.85% 0.1663 54.27);
+    --linear-3: oklch(72.61% 0.1663 54.4);
+    --linear-4: oklch(75.13% 0.1433 57.79);
+    --linear-5: oklch(79.71% 0.1349 54.96);
+    --linear-6: oklch(89.35% 0.0704 61.16);
+
     --chart-0: oklch(38.48% 0.072 53.97);
     --chart-1: oklch(68.85% 0.1663 54.27);
     --chart-2: oklch(72.61% 0.1663 54.4);
@@ -182,8 +197,8 @@
     --danger-2: oklch(35.08% 0.1143 25.31);
     --danger-fg: oklch(0.971 0.013 17.38);
 
-    --border: oklch(0.27 0.013 285.805);
-    --input: #a1a1aa;
+    --border: oklch(27.16% 0.0129 285.51);
+    --input: oklch(29.19% 0.0126 285.59);
     --ring: oklch(72.61% 0.1663 54.4);
 
     --navbar: oklch(0.17 0.006 285.885);
@@ -191,6 +206,14 @@
 
     --sidebar: oklch(0.16 0.006 285.885);
     --sidebar-fg: oklch(0.985 0 0);
+
+    --linear-0: oklch(26.16% 0.0512 55.52);
+    --linear-1: oklch(36.55% 0.0778 55.57);
+    --linear-2: oklch(68.85% 0.1663 54.27);
+    --linear-3: oklch(72.61% 0.1663 54.4);
+    --linear-4: oklch(75.13% 0.1433 57.79);
+    --linear-5: oklch(79.71% 0.1349 54.96);
+    --linear-6: oklch(89.35% 0.0704 61.16);
 
     --chart-0: oklch(38.48% 0.072 53.97);
     --chart-1: oklch(68.85% 0.1663 54.27);
@@ -202,7 +225,6 @@
 }
 
 @layer base {
-
   *,
   ::after,
   ::before,

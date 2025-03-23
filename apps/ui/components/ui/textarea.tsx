@@ -24,6 +24,7 @@ interface TextareaProps extends TextFieldPrimitiveProps {
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
   className?: string
+  ref?: React.Ref<HTMLDivElement>
 }
 
 const Textarea = ({
@@ -32,10 +33,12 @@ const Textarea = ({
   label,
   description,
   errorMessage,
+  ref,
   ...props
 }: TextareaProps) => {
   return (
     <TextFieldPrimitive
+      ref={ref}
       {...props}
       className={composeTailwindRenderProps(className, "group flex flex-col gap-y-1.5")}
     >
