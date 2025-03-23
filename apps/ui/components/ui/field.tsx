@@ -33,7 +33,7 @@ interface FieldProps {
 const fieldStyles = tv({
   slots: {
     description: "text-pretty text-muted-fg text-sm/6",
-    label: "w-fit cursor-default font-medium text-secondary-fg text-sm/6 relative",
+    label: "relative w-fit cursor-default font-medium text-secondary-fg text-sm/6",
     fieldError: "text-danger text-sm/6 forced-colors:text-[Mark]",
   },
 })
@@ -48,7 +48,7 @@ const Label = ({ className, isRequired, ...props }: ExtendedLabelProps) => {
   return (
     <LabelPrimitive {...props} className={label({ className })}>
       {props.children}
-      {isRequired && <span className="text-danger absolute -left-2 top-0">*</span>}
+      {isRequired && <span className="-left-2 absolute top-0 text-danger">*</span>}
     </LabelPrimitive>
   )
 }
