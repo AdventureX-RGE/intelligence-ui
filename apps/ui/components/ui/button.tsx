@@ -3,6 +3,7 @@
 import {
   Button as ButtonPrimitive,
   type ButtonProps as ButtonPrimitiveProps,
+  type PressEvent,
   composeRenderProps,
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
@@ -89,12 +90,14 @@ interface ButtonProps extends ButtonPrimitiveProps {
   size?: "medium" | "large" | "square-petite" | "extra-small" | "small"
   shape?: "square" | "circle"
   ref?: React.Ref<HTMLButtonElement>
+  onClick?: ((e: PressEvent) => void) | undefined
 }
 
-const Button = ({ className, intent, size, shape, ref, ...props }: ButtonProps) => {
+const Button = ({ className, intent, size, shape, onClick, ref, ...props }: ButtonProps) => {
   return (
     <ButtonPrimitive
       ref={ref}
+      onPress={onClick || props.onPress}
       {...props}
       className={composeRenderProps(className, (className, renderProps) =>
         buttonStyles({
