@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import type {
   FieldErrorProps as FieldErrorPrimitiveProps,
@@ -8,26 +8,26 @@ import type {
   TextFieldProps as TextFieldPrimitiveProps,
   TextProps,
   ValidationResult,
-} from "react-aria-components";
+} from "react-aria-components"
 import {
-  composeRenderProps,
   FieldError as FieldErrorPrimitive,
   Group,
   Input as InputPrimitive,
   Label as LabelPrimitive,
   Text,
-} from "react-aria-components";
-import { tv } from "tailwind-variants";
+  composeRenderProps,
+} from "react-aria-components"
+import { tv } from "tailwind-variants"
 
-import { composeTailwindRenderProps, focusStyles } from "./primitive";
+import { composeTailwindRenderProps, focusStyles } from "./primitive"
 
 interface FieldProps {
-  label?: string;
-  placeholder?: string;
-  description?: string;
-  errorMessage?: string | ((validation: ValidationResult) => string);
-  "aria-label"?: TextFieldPrimitiveProps["aria-label"];
-  "aria-labelledby"?: TextFieldPrimitiveProps["aria-labelledby"];
+  label?: string
+  placeholder?: string
+  description?: string
+  errorMessage?: string | ((validation: ValidationResult) => string)
+  "aria-label"?: TextFieldPrimitiveProps["aria-label"]
+  "aria-labelledby"?: TextFieldPrimitiveProps["aria-labelledby"]
 }
 
 const fieldStyles = tv({
@@ -36,21 +36,21 @@ const fieldStyles = tv({
     label: "w-fit cursor-default font-medium text-secondary-fg text-sm/6",
     fieldError: "text-danger text-sm/6 forced-colors:text-[Mark]",
   },
-});
+})
 
-const { description, label, fieldError } = fieldStyles();
+const { description, label, fieldError } = fieldStyles()
 
 const Label = ({ className, ...props }: LabelProps) => {
-  return <LabelPrimitive {...props} className={label({ className })} />;
-};
+  return <LabelPrimitive {...props} className={label({ className })} />
+}
 
 interface DescriptionProps extends TextProps {
-  isWarning?: boolean;
-  ref?: React.RefObject<HTMLElement>;
+  isWarning?: boolean
+  ref?: React.RefObject<HTMLElement>
 }
 
 const Description = ({ ref, className, ...props }: DescriptionProps) => {
-  const isWarning = props.isWarning ?? false;
+  const isWarning = props.isWarning ?? false
   return (
     <Text
       ref={ref}
@@ -60,11 +60,11 @@ const Description = ({ ref, className, ...props }: DescriptionProps) => {
         className: isWarning ? "text-warning" : className,
       })}
     />
-  );
-};
+  )
+}
 
 interface FieldErrorProps extends FieldErrorPrimitiveProps {
-  ref?: React.RefObject<HTMLElement>;
+  ref?: React.RefObject<HTMLElement>
 }
 const FieldError = ({ className, ref, ...props }: FieldErrorProps) => {
   return (
@@ -73,8 +73,8 @@ const FieldError = ({ className, ref, ...props }: FieldErrorProps) => {
       {...props}
       className={composeTailwindRenderProps(className, fieldError())}
     />
-  );
-};
+  )
+}
 
 const fieldGroupStyles = tv({
   base: [
@@ -98,7 +98,7 @@ const fieldGroupStyles = tv({
       true: "opacity-50 forced-colors:border-[GrayText]",
     },
   },
-});
+})
 
 const FieldGroup = ({ className, ...props }: GroupProps) => {
   return (
@@ -108,13 +108,14 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
         fieldGroupStyles({
           ...renderProps,
           className,
-        }))}
+        }),
+      )}
     />
-  );
-};
+  )
+}
 
 interface InputProps extends InputPrimitiveProps {
-  ref?: React.RefObject<HTMLInputElement>;
+  ref?: React.RefObject<HTMLInputElement>
 }
 
 const Input = ({ className, ref, ...props }: InputProps) => {
@@ -127,8 +128,8 @@ const Input = ({ className, ref, ...props }: InputProps) => {
         "w-full min-w-0 bg-(--color-bg) px-2.5 py-2 text-base text-fg placeholder-muted-fg outline-hidden data-focused:outline-hidden sm:text-sm/6 [&::-ms-reveal]:hidden [&::-webkit-search-cancel-button]:hidden",
       )}
     />
-  );
-};
+  )
+}
 
-export type { FieldErrorProps, FieldProps, InputProps };
-export { Description, FieldError, FieldGroup, Input, Label };
+export type { FieldErrorProps, FieldProps, InputProps }
+export { Description, FieldError, FieldGroup, Input, Label }

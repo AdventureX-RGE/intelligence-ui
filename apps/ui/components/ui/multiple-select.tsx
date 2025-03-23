@@ -1,34 +1,34 @@
-"use client";
+"use client"
 
-import { useCallback, useEffect, useId, useRef, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react"
 
-import { IconChevronLgDown } from "justd-icons";
-import { useFilter } from "react-aria";
+import { IconChevronLgDown } from "justd-icons"
+import { useFilter } from "react-aria"
 import type {
   ComboBoxProps as ComboBoxPrimitiveProps,
   Key,
   ValidationResult,
-} from "react-aria-components";
-import { ComboBox } from "react-aria-components";
-import type { ListData } from "react-stately";
-import { useListData } from "react-stately";
-import { tv } from "tailwind-variants";
+} from "react-aria-components"
+import { ComboBox } from "react-aria-components"
+import type { ListData } from "react-stately"
+import { useListData } from "react-stately"
+import { tv } from "tailwind-variants"
 
-import { cn } from "@/utils/classes";
-import { Button } from "./button";
-import type { FieldProps } from "./field";
-import { Description, FieldError, Input, Label } from "./field";
-import { ListBox } from "./list-box";
-import { PopoverContent } from "./popover";
-import type { RestrictedIntent, TagGroupProps } from "./tag-group";
-import { Tag, TagGroup, TagList } from "./tag-group";
-import { VisuallyHidden } from "./visually-hidden";
+import { cn } from "@/utils/classes"
+import { Button } from "./button"
+import type { FieldProps } from "./field"
+import { Description, FieldError, Input, Label } from "./field"
+import { ListBox } from "./list-box"
+import { PopoverContent } from "./popover"
+import type { RestrictedIntent, TagGroupProps } from "./tag-group"
+import { Tag, TagGroup, TagList } from "./tag-group"
+import { VisuallyHidden } from "./visually-hidden"
 
 const multiSelectStyles = tv({
   slots: {
     multiSelectField: "group flex w-full min-w-80 flex-col",
     multiSelect: [
-      "relative flex bg-(--color-bg) min-h-10 flex-row flex-wrap items-center rounded-lg border px-1 shadow-xs transition",
+      "relative flex min-h-10 flex-row flex-wrap items-center rounded-lg border bg-(--color-bg) px-1 shadow-xs transition",
       "has-[input[data-focused=true]]:border-ring/70",
       "has-[input[data-invalid=true][data-focused=true]]:border-blue-500",
       "has-[input[data-invalid=true]]:border-danger",
@@ -40,47 +40,41 @@ const multiSelectStyles = tv({
     comboBoxChild: "inline-flex flex-1 flex-wrap items-center px-0",
     comboBox: "group peer flex flex-1",
   },
-});
+})
 
-const {
-  multiSelectField,
-  multiSelect,
-  chevronButton,
-  input,
-  comboBox,
-  comboBoxChild,
-} = multiSelectStyles();
+const { multiSelectField, multiSelect, chevronButton, input, comboBox, comboBoxChild } =
+  multiSelectStyles()
 
 interface SelectedKey {
-  id: Key;
-  name: string;
+  id: Key
+  name: string
 }
 
-interface MultipleSelectProps<T extends object> extends
-  FieldProps,
-  Omit<
-    ComboBoxPrimitiveProps<T>,
-    | "children"
-    | "validate"
-    | "allowsEmptyCollection"
-    | "inputValue"
-    | "selectedKey"
-    | "className"
-    | "value"
-    | "onSelectionChange"
-    | "onInputChange"
-  >,
-  Pick<TagGroupProps, "shape"> {
-  intent?: RestrictedIntent;
-  items: Array<T>;
-  selectedItems: ListData<T>;
-  className?: string;
-  onItemInserted?: (key: Key) => void;
-  onItemCleared?: (key: Key) => void;
-  renderEmptyState?: (inputValue: string) => React.ReactNode;
-  tag: (item: T) => React.ReactNode;
-  children: React.ReactNode | ((item: T) => React.ReactNode);
-  errorMessage?: string | ((validation: ValidationResult) => string);
+interface MultipleSelectProps<T extends object>
+  extends FieldProps,
+    Omit<
+      ComboBoxPrimitiveProps<T>,
+      | "children"
+      | "validate"
+      | "allowsEmptyCollection"
+      | "inputValue"
+      | "selectedKey"
+      | "className"
+      | "value"
+      | "onSelectionChange"
+      | "onInputChange"
+    >,
+    Pick<TagGroupProps, "shape"> {
+  intent?: RestrictedIntent
+  items: Array<T>
+  selectedItems: ListData<T>
+  className?: string
+  onItemInserted?: (key: Key) => void
+  onItemCleared?: (key: Key) => void
+  renderEmptyState?: (inputValue: string) => React.ReactNode
+  tag: (item: T) => React.ReactNode
+  children: React.ReactNode | ((item: T) => React.ReactNode)
+  errorMessage?: string | ((validation: ValidationResult) => string)
 }
 
 const MultipleSelect = <T extends SelectedKey>({
@@ -95,124 +89,124 @@ const MultipleSelect = <T extends SelectedKey>({
   errorMessage,
   ...props
 }: MultipleSelectProps<T>) => {
-  const tagGroupIdentifier = useId();
-  const triggerRef = useRef<HTMLDivElement | null>(null);
-  const [width, setWidth] = useState(0);
+  const tagGroupIdentifier = useId()
+  const triggerRef = useRef<HTMLDivElement | null>(null)
+  const [width, setWidth] = useState(0)
 
-  const { contains } = useFilter({ sensitivity: "base" });
-  const selectedKeys = selectedItems.items.map((i) => i.id);
+  const { contains } = useFilter({ sensitivity: "base" })
+  const selectedKeys = selectedItems.items.map((i) => i.id)
 
   const filter = useCallback(
     (item: T, filterText: string) => {
-      return !selectedKeys.includes(item.id) && contains(item.name, filterText);
+      return !selectedKeys.includes(item.id) && contains(item.name, filterText)
     },
     [contains, selectedKeys],
-  );
+  )
 
   const accessibleList = useListData({
     initialItems: items,
     filter,
-  });
+  })
 
   const [fieldState, setFieldState] = useState<{
-    selectedKey: Key | null;
-    inputValue: string;
+    selectedKey: Key | null
+    inputValue: string
   }>({
     selectedKey: null,
     inputValue: "",
-  });
+  })
 
   const onRemove = useCallback(
     (keys: Set<Key>) => {
-      const key = keys.values().next().value;
+      const key = keys.values().next().value
       if (key) {
-        selectedItems.remove(key);
+        selectedItems.remove(key)
         setFieldState({
           inputValue: "",
           selectedKey: null,
-        });
-        onItemCleared?.(key);
+        })
+        onItemCleared?.(key)
       }
     },
     [selectedItems, onItemCleared],
-  );
+  )
 
   const onSelectionChange = (id: Key | null) => {
     if (!id) {
-      return;
+      return
     }
 
-    const item = accessibleList.getItem(id);
+    const item = accessibleList.getItem(id)
 
     if (!item) {
-      return;
+      return
     }
 
     if (!selectedKeys.includes(id)) {
-      selectedItems.append(item);
+      selectedItems.append(item)
       setFieldState({
         inputValue: "",
         selectedKey: id,
-      });
-      onItemInserted?.(id);
+      })
+      onItemInserted?.(id)
     }
 
-    accessibleList.setFilterText("");
-  };
+    accessibleList.setFilterText("")
+  }
 
   const onInputChange = (value: string) => {
     setFieldState((prev) => ({
       inputValue: value,
       selectedKey: value === "" ? null : prev.selectedKey,
-    }));
+    }))
 
-    accessibleList.setFilterText(value);
-  };
+    accessibleList.setFilterText(value)
+  }
 
   const popLast = useCallback(() => {
     if (selectedItems.items.length === 0) {
-      return;
+      return
     }
 
-    const endKey = selectedItems.items[selectedItems.items.length - 1];
+    const endKey = selectedItems.items[selectedItems.items.length - 1]
 
     if (endKey) {
-      selectedItems.remove(endKey.id);
-      onItemCleared?.(endKey.id);
+      selectedItems.remove(endKey.id)
+      onItemCleared?.(endKey.id)
     }
 
     setFieldState({
       inputValue: "",
       selectedKey: null,
-    });
-  }, [selectedItems, onItemCleared]);
+    })
+  }, [selectedItems, onItemCleared])
 
   const onKeyDownCapture = useCallback(
     (e: React.KeyboardEvent<HTMLInputElement>) => {
       if (e.key === "Backspace" && fieldState.inputValue === "") {
-        popLast();
+        popLast()
       }
     },
     [popLast, fieldState.inputValue],
-  );
+  )
 
   useEffect(() => {
-    const trigger = triggerRef.current;
-    if (!trigger) return;
+    const trigger = triggerRef.current
+    if (!trigger) return
 
     const observer = new ResizeObserver((entries) => {
       for (const entry of entries) {
-        setWidth(entry.target.clientWidth);
+        setWidth(entry.target.clientWidth)
       }
-    });
+    })
 
-    observer.observe(trigger);
+    observer.observe(trigger)
     return () => {
-      observer.unobserve(trigger);
-    };
-  }, []);
+      observer.unobserve(trigger)
+    }
+  }, [])
 
-  const triggerButtonRef = useRef<HTMLButtonElement | null>(null);
+  const triggerButtonRef = useRef<HTMLButtonElement | null>(null)
 
   return (
     <div className={multiSelectField({ className })}>
@@ -231,8 +225,7 @@ const MultipleSelect = <T extends SelectedKey>({
               className={cn(
                 selectedItems.items.length !== 0 && "px-1 py-1.5",
                 "[&_.jdt3lr2x]:last:-mr-1 gap-1.5 outline-hidden",
-                props.shape === "square" &&
-                  "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]",
+                props.shape === "square" && "[&_.jdt3lr2x]:rounded-[calc(var(--radius-lg)-4px)]",
               )}
             >
               {props.tag}
@@ -257,8 +250,8 @@ const MultipleSelect = <T extends SelectedKey>({
                   setFieldState({
                     inputValue: "",
                     selectedKey: null,
-                  });
-                  accessibleList.setFilterText("");
+                  })
+                  accessibleList.setFilterText("")
                 }}
                 onKeyDownCapture={onKeyDownCapture}
               />
@@ -286,36 +279,28 @@ const MultipleSelect = <T extends SelectedKey>({
             >
               <ListBox
                 renderEmptyState={() =>
-                  renderEmptyState
-                    ? (
-                      renderEmptyState(fieldState.inputValue)
-                    )
-                    : (
-                      <Description className="block p-3">
-                        {fieldState.inputValue
-                          ? (
-                            <>
-                              No results found for:{" "}
-                              <strong className="font-medium text-fg">
-                                {fieldState.inputValue}
-                              </strong>
-                            </>
-                          )
-                          : (
-                            "No options"
-                          )}
-                      </Description>
-                    )}
+                  renderEmptyState ? (
+                    renderEmptyState(fieldState.inputValue)
+                  ) : (
+                    <Description className="block p-3">
+                      {fieldState.inputValue ? (
+                        <>
+                          No results found for:{" "}
+                          <strong className="font-medium text-fg">{fieldState.inputValue}</strong>
+                        </>
+                      ) : (
+                        "No options"
+                      )}
+                    </Description>
+                  )
+                }
                 selectionMode="multiple"
               >
                 {children}
               </ListBox>
             </PopoverContent>
           </ComboBox>
-          <div
-            className="relative ml-auto flex items-center justify-center px-1"
-            aria-hidden
-          >
+          <div className="relative ml-auto flex items-center justify-center px-1" aria-hidden>
             <button
               type="button"
               className={chevronButton()}
@@ -329,18 +314,16 @@ const MultipleSelect = <T extends SelectedKey>({
       </div>
       {props.description && <Description>{props.description}</Description>}
       {<FieldError>{errorMessage}</FieldError>}
-      {name && (
-        <input hidden name={name} value={selectedKeys.join(",")} readOnly />
-      )}
+      {name && <input hidden name={name} value={selectedKeys.join(",")} readOnly />}
     </div>
-  );
-};
+  )
+}
 
-const MultipleSelectTag = Tag;
-const MultipleSelectOption = ListBox.Item;
+const MultipleSelectTag = Tag
+const MultipleSelectOption = ListBox.Item
 
-MultipleSelect.Tag = MultipleSelectTag;
-MultipleSelect.Option = MultipleSelectOption;
+MultipleSelect.Tag = MultipleSelectTag
+MultipleSelect.Option = MultipleSelectOption
 
-export type { MultipleSelectProps, SelectedKey };
-export { MultipleSelect };
+export type { MultipleSelectProps, SelectedKey }
+export { MultipleSelect }

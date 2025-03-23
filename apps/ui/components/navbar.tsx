@@ -13,7 +13,6 @@ import {
   IconBrandJustd,
   IconBrandTailwindcss,
   IconBrandX,
-  IconColorPalette,
   IconColors,
   IconCube,
   IconHome,

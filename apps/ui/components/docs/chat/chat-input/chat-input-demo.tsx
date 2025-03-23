@@ -1,8 +1,8 @@
 "use client"
 
-import { Button, ChatInput, PromptInputAction, PromptInputActions, PromptInputTextarea } from "ui"
 import { ArrowUp, Square } from "lucide-react"
 import { useState } from "react"
+import { Button, ChatInput, PromptInputAction, PromptInputActions, PromptInputTextarea } from "ui"
 
 export default function PromptInputBasic() {
   const [input, setInput] = useState("")
