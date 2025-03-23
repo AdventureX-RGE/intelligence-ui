@@ -56,7 +56,7 @@ const ComboBox = <T extends object>({
 }: ComboBoxProps<T>) => {
   return (
     <ComboboxPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
-      {label && <Label>{label}</Label>}
+      {label && <Label isRequired={props.isRequired}>{label}</Label>}
       {children}
       {description && <Description>{description}</Description>}
       <FieldError>{errorMessage}</FieldError>

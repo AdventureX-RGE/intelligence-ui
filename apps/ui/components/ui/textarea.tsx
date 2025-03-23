@@ -42,7 +42,7 @@ const Textarea = ({
       {...props}
       className={composeTailwindRenderProps(className, "group flex flex-col gap-y-1.5")}
     >
-      {label && <Label>{label}</Label>}
+      {label && <Label isRequired={props.isRequired}>{label}</Label>}
       <TextAreaPrimitive
         placeholder={placeholder}
         className={composeRenderProps(className, (className, renderProps) =>

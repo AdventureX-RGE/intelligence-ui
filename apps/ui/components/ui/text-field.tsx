@@ -62,7 +62,7 @@ const TextField = ({
     >
       {!props.children ? (
         <>
-          {label && <Label>{label}</Label>}
+          {label && <Label isRequired={props.isRequired}>{label}</Label>}
           <FieldGroup
             isDisabled={props.isDisabled}
             isInvalid={!!errorMessage}
