@@ -1,0 +1,36 @@
+{
+  "name": "intelligence-font",
+  "version": "1.2.3",
+  "description": "A font for Intelligence-UI.",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "index.d.ts",
+  "files": [
+    "fonts",
+    "css",
+    "index.d.ts",
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "prepublishOnly": "npm run build"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "font",
+    "intelligence-ui",
+    "fontsource",
+    "typography"
+  ],
+  "author": "Intelligence UI Team",
+  "license": "MIT",
+  "dependencies": {
+    "@types/node": "^22.13.12"
+  },
+  "devDependencies": {
+    "tsup": "^8.4.0"
+  }
+}
