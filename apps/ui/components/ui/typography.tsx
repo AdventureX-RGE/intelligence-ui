@@ -11,7 +11,7 @@ const typographyStyles = tv({
       paragraph: "font-patika-regular text-[1.25em] leading-[1.75em]",
       body: "font-patika-regular text-[1em] leading-[1.5em]",
       bodyEmphasized: "font-patika-medium text-[1em] leading-[1.5em]",
-      button: "font-patika-medium text-[1.25em] leading-[1.5em]",
+      button: "font-patika-medium text-[1em] leading-[1.5em]",
       note: "font-patika-regular text-[0.875em] leading-[1.25em]",
       caption: "font-orbix-regular text-[1em] leading-[1.25em]",
     },

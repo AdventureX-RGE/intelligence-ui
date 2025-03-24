@@ -7,13 +7,7 @@
   "bin": {
     "intelligence-cli": "dist/index.js"
   },
-  "files": [
-    "dist",
-    "src/resources",
-    "LICENSE",
-    "README.md",
-    "package.json"
-  ],
+  "files": ["dist", "src/resources", "LICENSE", "README.md", "package.json"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/AdventureX-RGE/intelligence-ui.git"
@@ -31,12 +25,7 @@
     "release": "export GITHUB_TOKEN=$(cat .github_token) && release-it",
     "typecheck": "tsc --noEmit"
   },
-  "keywords": [
-    "cli",
-    "intelligence-ui cli",
-    "Intelligence-UI",
-    "design-system"
-  ],
+  "keywords": ["cli", "intelligence-ui cli", "Intelligence-UI", "design-system"],
   "author": "AdventureX",
   "license": "MIT",
   "devDependencies": {
