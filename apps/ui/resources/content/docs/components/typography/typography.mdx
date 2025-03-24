@@ -3,6 +3,7 @@ title: "Typography"
 description: Use typography to present your design and content as clearly and efficiently as possible.
 published: true
 order: 1
+references: ["https://www.npmjs.com/package/intelligence-font"]
 ---
 
 ## Basic
@@ -12,3 +13,27 @@ order: 1
 ## Installation
 
 <Installation options={{ isComponent: true }} items={["typography"]} />
+
+## Font
+
+Intelligence-UI uses the Intelligence font to provide a consistent look and feel. Add it to your project via Fontsource.
+
+<Installation
+  command="npm install intelligence-font@latest"
+  options={{ isExecutor: true }}
+  items={[""]}
+/>
+
+Then, please set the global font variables in your `globals.css` file.
+
+```css
+@import "intelligence-font/css/Orbix Regular.css";
+@import "intelligence-font/css/Patika Regular.css";
+@import "intelligence-font/css/Patika Medium.css";
+
+@theme {
+  --font-orbix-regular: "Orbix Regular";
+  --font-patika-regular: "Patika Regular";
+  --font-patika-medium: "Patika Medium";
+}
+```
