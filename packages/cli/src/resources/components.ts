@@ -47,6 +47,7 @@ const components: any[] = [
       { name: "search-field" },
       { name: "input-otp" },
       { name: "choicebox" },
+      { name: "selection-box" },
     ],
   },
   {
@@ -120,6 +121,10 @@ const components: any[] = [
       { name: "separator" },
       { name: "show-more" },
     ],
+  },
+  {
+    name: "typography",
+    children: [{ name: "typography" }],
   },
   { name: "media", children: [{ name: "avatar" }, { name: "carousel" }] },
   {

@@ -85,8 +85,8 @@ importers:
         specifier: ^1.4.2
         version: 1.4.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       intelligence-font:
-        specifier: workspace:*
-        version: link:../../packages/fontsource
+        specifier: ^1.2.4
+        version: 1.2.4
       justd-icons:
         specifier: ^1.10.25
         version: 1.10.25(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -3209,6 +3209,9 @@ packages:
     engines: {node: '>=18'}
     peerDependencies:
       '@types/node': '>=18'
+
+  intelligence-font@1.2.4:
+    resolution: {integrity: sha512-wkrCQa+n4Yf7ckEGmFtvoWSoKdPpRfys6S1hnmpJc3e18GkYC2e6S1/8bVl78upWJRVpuYxY5o4y3TuVExvPHA==}
 
   internmap@2.0.3:
     resolution: {integrity: sha512-5Hh7Y1wQbvY5ooGgPbDaL5iYLAPzMTUrjMulskHLH6wnv/A+1q5rgEaiuqEjB+oxGXIVZs1FF+R/KPN3ZSQYYg==}
@@ -8415,6 +8418,10 @@ snapshots:
       mute-stream: 2.0.0
       run-async: 3.0.0
       rxjs: 7.8.2
+
+  intelligence-font@1.2.4:
+    dependencies:
+      '@types/node': 22.13.12
 
   internmap@2.0.3: {}
 
