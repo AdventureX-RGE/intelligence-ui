@@ -2,7 +2,7 @@
 @import "intelligence-font/css/Orbix Regular.css";
 @import "intelligence-font/css/Patika Regular.css";
 @import "intelligence-font/css/Patika Medium.css";
-
+@import "intelligence-font/css/Patika Bold.css";
 @import "./code.css";
 
 @plugin 'tailwindcss-animate';
@@ -17,6 +17,7 @@
   --font-orbix-regular: "Orbix Regular";
   --font-patika-regular: "Patika Regular";
   --font-patika-medium: "Patika Medium";
+  --font-patika-bold: "Patika Bold";
   --color-shiki-bg: var(--shiki-bg);
   --color-shiki-border: var(--input);
 

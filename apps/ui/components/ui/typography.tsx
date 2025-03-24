@@ -6,7 +6,7 @@ const typographyStyles = tv({
   variants: {
     variant: {
       h1: "font-patika-medium text-[2em] leading-[2.25em]",
-      h2: "font-patika-regular text-[1.5em] leading-[2em]",
+      h2: "font-patika-bold text-[1.5em] leading-[2em]",
       h3: "font-patika-medium text-[1.25em] leading-[1.5em]",
       paragraph: "font-patika-regular text-[1.25em] leading-[1.75em]",
       body: "font-patika-regular text-[1em] leading-[1.5em]",
