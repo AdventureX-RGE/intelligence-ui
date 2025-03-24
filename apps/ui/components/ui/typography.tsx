@@ -1,4 +1,3 @@
-import { forwardRef } from "react"
 import { type VariantProps, tv } from "tailwind-variants"
 
 const typographyStyles = tv({
@@ -28,15 +27,13 @@ type TypographyProps = {
   as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span" | "div"
 }
 
-const Typography = forwardRef<HTMLElement, TypographyProps>(
-  ({ className, variant, as: Tag = "p", children, ...props }, ref) => {
-    return (
-      <Tag className={typographyStyles({ variant, className })} {...props}>
-        {children}
-      </Tag>
-    )
-  },
-)
+const Typography = ({ className, variant, as: Tag = "p", children, ...props }: TypographyProps) => {
+  return (
+    <Tag className={typographyStyles({ variant, className })} {...props}>
+      {children}
+    </Tag>
+  )
+}
 
 Typography.displayName = "Typography"
 
