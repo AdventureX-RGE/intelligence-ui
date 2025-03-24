@@ -84,6 +84,9 @@ importers:
       input-otp:
         specifier: ^1.4.2
         version: 1.4.2(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      intelligence-font:
+        specifier: workspace:*
+        version: link:../../packages/fontsource
       justd-icons:
         specifier: ^1.10.25
         version: 1.10.25(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -7239,7 +7242,7 @@ snapshots:
 
   '@types/conventional-commits-parser@5.0.1':
     dependencies:
-      '@types/node': 22.13.11
+      '@types/node': 22.13.12
 
   '@types/culori@2.1.1': {}
 

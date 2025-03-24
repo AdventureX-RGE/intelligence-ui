@@ -1,4 +1,8 @@
 @import "tailwindcss";
+@import "intelligence-font/css/Orbix Regular.css";
+@import "intelligence-font/css/Patika Regular.css";
+@import "intelligence-font/css/Patika Medium.css";
+
 @import "./code.css";
 
 @plugin 'tailwindcss-animate';
@@ -10,6 +14,9 @@
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-mono: var(--font-geist-mono), "ui-monospace", "SFMono-Regular", "Menlo", "Monaco",
     "Consolas", '"Liberation Mono"', '"Courier New"', "monospace";
+  --font-orbix-regular: "Orbix Regular";
+  --font-patika-regular: "Patika Regular";
+  --font-patika-medium: "Patika Medium";
   --color-shiki-bg: var(--shiki-bg);
   --color-shiki-border: var(--input);
 
