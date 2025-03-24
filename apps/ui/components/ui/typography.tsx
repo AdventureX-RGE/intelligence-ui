@@ -29,7 +29,7 @@ type TypographyProps = {
 }
 
 const Typography = forwardRef<HTMLElement, TypographyProps>(
-  ({ className, variant, as: Tag = "p", children, ...props }) => {
+  ({ className, variant, as: Tag = "p", children, ...props }, ref) => {
     return (
       <Tag className={typographyStyles({ variant, className })} {...props}>
         {children}

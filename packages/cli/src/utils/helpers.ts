@@ -196,7 +196,6 @@ export function isTailwind(version: number): boolean {
  */
 export function isTailwindInstalled(): boolean {
   const packageJsonPath = path.join(process.cwd(), "package.json")
-  console.log(packageJsonPath)
 
   if (existsSync(packageJsonPath)) {
     const packageJson = JSON.parse(fs.readFileSync(packageJsonPath, "utf8"))
