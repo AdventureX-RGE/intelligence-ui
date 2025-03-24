@@ -222,6 +222,7 @@ export async function add(options: {
         selectedComponents.map(async (componentName: string) => {
           try {
             const targetComponent = components.find((comp) => comp.name === componentName)
+
             if (!targetComponent && type === "intelligence-ui") {
               warn(`Component '${highlight(componentName)}' not found in local resources.`)
               return
