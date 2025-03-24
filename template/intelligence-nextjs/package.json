@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbopack",
+    "dev": "next dev --port 3001",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "intelligence-font": "^1.2.2",
     "justd-icons": "^1.10.25",
     "next": "15.2.2",
     "react": "^19.0.0",
