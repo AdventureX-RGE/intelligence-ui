@@ -24,6 +24,11 @@ declare module "*/css/Patika*.css" {
   export default content
 }
 
+declare module "*/css/Orbix.css" {
+  const content: string
+  export default content
+}
+
 type FontPath = string
 
 export interface FontWeight {

@@ -29,7 +29,14 @@
       "#site/content": ["./.source"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "next.config.mjs"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "next.config.mjs",
+    "resources/content/docs/components/typography/typography.mdx"
+  ],
   "exclude": [
     ".next",
     "node_modules",

@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "first-time": "pnpm install && npm run build && next dev",
+    "first-time": "pnpm install && npm run build && next dev --port 3001",
     "lint": "biome check",
     "build:stubs": "rimraf public/stubs && tsx resources/scripts/build-stubs.ts",
     "prebuild": "pnpm run build:registry && npm run build:stubs",
@@ -69,7 +69,8 @@
     "tailwindcss-react-aria-components": "^2.0.0",
     "use-debounce": "^10.0.4",
     "usemods": "^1.12.0",
-    "zod": "^3.24.2"
+    "zod": "^3.24.2",
+    "intelligence-font": "workspace:*"
   },
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",

@@ -49,7 +49,6 @@ export const patika = {
   },
 } as const
 
-// 为 Next.js localFont 提供直接的字面量路径
 export const FONT_FILES = {
   extraLight: "/fonts/Patika Extra Light.woff2",
   light: "/fonts/Patika Light.woff2",
