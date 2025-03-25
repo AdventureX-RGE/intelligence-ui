@@ -80,7 +80,15 @@ const choiceboxItemStyles = tv({
     "**:data-[slot=choicebox-icon]:size-5 **:data-[slot=choicebox-icon]:shrink-0 **:data-[slot=choicebox-icon]:text-current/60 selected:**:data-[slot=choicebox-icon]:text-current/90",
   ],
   variants: {
-    init: {
+    isSelected: {
+      true: [
+        "bg-(--choicebox) text-(--choicebox-fg)",
+        "inset-ring-ring/70 z-20 hover:bg-(--choicebox-selected-hovered)",
+        "[&_[slot=title]]:text-(--choicebox-fg)",
+        "[&_[slot=description]]:text-(--choicebox-fg)",
+      ],
+    },
+    isHoveredOrFocused: {
       true: [
         "bg-(--choicebox) text-(--choicebox-fg)",
         "inset-ring-ring/70 z-20 hover:bg-(--choicebox-selected-hovered)",
@@ -108,13 +116,14 @@ const SelectionboxItem = ({ icon: Icon, className, ...props }: SelectionboxItemP
       textValue={textValue}
       data-slot="choicebox-item"
       {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
-        choiceboxItemStyles({
-          ...renderProps,
-          init: renderProps.isSelected || renderProps.isHovered || renderProps.isFocusVisible,
+      className={composeRenderProps(className, (className, renderProps) => {
+        return choiceboxItemStyles({
+          isSelected: renderProps.isSelected,
+          isHoveredOrFocused: (!renderProps.isSelected && (renderProps.isHovered || renderProps.isFocusVisible)),
+          isDisabled: renderProps.isDisabled,
           className,
-        }),
-      )}
+        })
+      })}
     >
       {(values) => (
         <div className="flex w-full items-center justify-between gap-2">
