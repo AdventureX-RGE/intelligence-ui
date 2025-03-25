@@ -9,6 +9,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { focusButtonStyles } from "./primitive"
+import { Typography } from "./typography";
 
 const buttonStyles = tv({
   extend: focusButtonStyles,
@@ -110,7 +111,9 @@ const Button = ({ className, intent, size, shape, onClick, ref, ...props }: Butt
       )}
     >
       {(values) => (
-        <>{typeof props.children === "function" ? props.children(values) : props.children}</>
+        <Typography as="div" variant="button">
+          {typeof props.children === "function" ? props.children(values) : props.children}
+        </Typography>
       )}
     </ButtonPrimitive>
   )
