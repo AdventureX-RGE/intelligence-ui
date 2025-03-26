@@ -21,6 +21,7 @@ interface CheckboxGroupProps extends CheckboxGroupPrimitiveProps {
   label?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
+  isRequired?: boolean
 }
 
 const CheckboxGroup = ({ className, ...props }: CheckboxGroupProps) => {
