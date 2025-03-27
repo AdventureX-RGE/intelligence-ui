@@ -86,13 +86,7 @@ const DropdownItem = ({ className, ...props }: DropdownItemProps) => {
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
           {isSelected && <IconCheck className="-mx-0.5 mr-2" data-slot="checked-icon" />}
-          {typeof children === "string" ? (
-            <Typography>
-              <DropdownLabel>{children}</DropdownLabel>
-            </Typography>
-          ) : (
-            children
-          )}
+          {typeof children === "string" ? <DropdownLabel>{children}</DropdownLabel> : children}
         </>
       ))}
     </ListBoxItemPrimitive>
@@ -123,10 +117,10 @@ const DropdownItemDetails = ({
       {...restProps}
     >
       {label && (
-        <Typography>
+        <Typography variant="body">
           <Text
             slot={slot ?? "label"}
-            className={cn("font-medium", classNames?.label)}
+            className={cn("font-medium sm:text-sm", classNames?.label)}
             {...restProps}
           >
             {label}
@@ -134,7 +128,7 @@ const DropdownItemDetails = ({
         </Typography>
       )}
       {description && (
-        <Typography>
+        <Typography variant="note">
           <Text
             slot={slot ?? "description"}
             className={cn("text-muted-fg text-xs", classNames?.description)}
@@ -154,7 +148,9 @@ interface DropdownLabelProps extends TextProps {
 }
 
 const DropdownLabel = ({ className, ref, ...props }: DropdownLabelProps) => (
-  <Text slot="label" ref={ref} className={cn("col-start-2", className)} {...props} />
+  <Typography variant="body" className="!text-sm">
+    <Text slot="label" ref={ref} className={cn("col-start-2", className)} {...props} />
+  </Typography>
 )
 
 const DropdownSeparator = ({ className, ...props }: SeparatorProps) => (
