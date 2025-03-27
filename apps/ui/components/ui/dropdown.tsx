@@ -19,6 +19,7 @@ import {
 } from "react-aria-components"
 import { tv } from "tailwind-variants"
 import { Keyboard } from "./keyboard"
+import { Typography } from "./typography"
 
 const dropdownItemStyles = tv({
   base: [
@@ -83,10 +84,10 @@ const DropdownItem = ({ className, ...props }: DropdownItemProps) => {
       {...props}
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
-        <>
+        <Typography as="div">
           {isSelected && <IconCheck className="-mx-0.5 mr-2" data-slot="checked-icon" />}
           {typeof children === "string" ? <DropdownLabel>{children}</DropdownLabel> : children}
-        </>
+        </Typography>
       ))}
     </ListBoxItemPrimitive>
   )
@@ -116,22 +117,26 @@ const DropdownItemDetails = ({
       {...restProps}
     >
       {label && (
-        <Text
-          slot={slot ?? "label"}
-          className={cn("font-medium sm:text-sm", classNames?.label)}
-          {...restProps}
-        >
-          {label}
-        </Text>
+        <Typography as="div">
+          <Text
+            slot={slot ?? "label"}
+            className={cn("font-medium sm:text-sm", classNames?.label)}
+            {...restProps}
+          >
+            {label}
+          </Text>
+        </Typography>
       )}
       {description && (
-        <Text
-          slot={slot ?? "description"}
-          className={cn("text-muted-fg text-xs", classNames?.description)}
-          {...restProps}
-        >
-          {description}
-        </Text>
+        <Typography as="div">
+          <Text
+            slot={slot ?? "description"}
+            className={cn("text-muted-fg text-xs", classNames?.description)}
+            {...restProps}
+          >
+            {description}
+          </Text>
+        </Typography>
       )}
       {!title && children}
     </div>
@@ -143,7 +148,9 @@ interface DropdownLabelProps extends TextProps {
 }
 
 const DropdownLabel = ({ className, ref, ...props }: DropdownLabelProps) => (
-  <Text slot="label" ref={ref} className={cn("col-start-2", className)} {...props} />
+  <Typography as="div">
+    <Text slot="label" ref={ref} className={cn("col-start-2", className)} {...props} />
+  </Typography>
 )
 
 const DropdownSeparator = ({ className, ...props }: SeparatorProps) => (
