@@ -44,6 +44,7 @@ interface ComboBoxProps<T extends object> extends Omit<ComboboxPrimitiveProps<T>
   description?: string | null
   errorMessage?: string | ((validation: ValidationResult) => string)
   children: React.ReactNode
+  isRequired?: boolean
 }
 
 const ComboBox = <T extends object>({

@@ -137,14 +137,18 @@ const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
         }),
       )}
     >
-      {props.prefix && <span className="-mr-1">{props.prefix}</span>}
-      <SelectValue
-        data-slot="select-value"
-        className="*:data-[slot=icon]:-mx-0.5 *:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:*:-mx-0.5 grid flex-1 grid-cols-[auto_1fr] items-center text-base data-placeholder:text-muted-fg *:data-[slot=avatar]:*:mr-2 *:data-[slot=avatar]:mr-2 *:data-[slot=icon]:mr-2 sm:text-sm [&_[slot=description]]:hidden"
-      />
+      <div className="flex flex-1 items-center gap-x-2 overflow-hidden">
+        {props.prefix && <span className="-mr-1">{props.prefix}</span>}
+        <Typography>
+          <SelectValue
+            data-slot="select-value"
+            className="*:data-[slot=icon]:-mx-0.5 *:data-[slot=avatar]:-mx-0.5 *:data-[slot=avatar]:*:-mx-0.5 flex items-center text-base data-placeholder:text-muted-fg *:data-[slot=avatar]:*:mr-2 *:data-[slot=avatar]:mr-2 *:data-[slot=icon]:mr-2 sm:text-sm [&_[slot=description]]:hidden"
+          />
+        </Typography>
+      </div>
       <IconChevronLgDown
         aria-hidden
-        className="size-4 shrink-0 text-muted-fg duration-300 group-disabled:opacity-50 group-data-open:rotate-180 group-data-open:text-fg forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
+        className="ml-2 size-4 shrink-0 text-muted-fg duration-300 group-disabled:opacity-50 group-data-open:rotate-180 group-data-open:text-fg forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
       />
     </Button>
   )

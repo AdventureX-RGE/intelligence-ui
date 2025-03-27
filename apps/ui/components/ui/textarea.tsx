@@ -12,6 +12,7 @@ import { useState, useEffect } from "react"
 
 import { Description, FieldError, Label } from "./field"
 import { composeTailwindRenderProps, focusStyles } from "./primitive"
+import { Typography } from "./typography"
 
 const textareaStyles = tv({
   extend: focusStyles,
@@ -62,17 +63,19 @@ const Textarea = ({
     >
       {label && <Label isRequired={props.isRequired}>{label}</Label>}
       <div className="relative">
-        <TextAreaPrimitive
-          placeholder={placeholder}
-          maxLength={maxLength}
-          className={composeRenderProps(className, (className, renderProps) =>
-            textareaStyles({
-              ...renderProps,
-              className,
-            }),
-          )}
-          style={{ wordWrap: "break-word", overflowWrap: "break-word" }}
-        />
+        <Typography as="div">
+          <TextAreaPrimitive
+            placeholder={placeholder}
+            maxLength={maxLength}
+            className={composeRenderProps(className, (className, renderProps) =>
+              textareaStyles({
+                ...renderProps,
+                className,
+              }),
+            )}
+            style={{ wordWrap: "break-word", overflowWrap: "break-word" }}
+          />
+        </Typography>
         {showCharacterCount && currentLength > 0 && (
           <div className="absolute bottom-1 right-2.5 text-xs text-muted-fg select-none pointer-events-none">
             {getCountText()}

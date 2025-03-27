@@ -20,6 +20,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { composeTailwindRenderProps, focusStyles } from "./primitive"
+import { Typography } from "./typography";
 
 interface FieldProps {
   label?: string
@@ -46,10 +47,12 @@ interface ExtendedLabelProps extends LabelProps {
 
 const Label = ({ className, isRequired, ...props }: ExtendedLabelProps) => {
   return (
-    <LabelPrimitive {...props} className={label({ className })}>
-      {props.children}
-      {isRequired && <span className="-left-2 absolute top-0 text-danger">*</span>}
-    </LabelPrimitive>
+    <Typography as="div">
+      <LabelPrimitive {...props} className={label({ className })}>
+        {props.children}
+        {isRequired && <span className="-left-2 absolute top-0 text-danger">*</span>}
+      </LabelPrimitive>
+    </Typography>
   )
 }
 
@@ -87,7 +90,7 @@ const FieldError = ({ className, ref, ...props }: FieldErrorProps) => {
 
 const fieldGroupStyles = tv({
   base: [
-    "group flex h-10 items-center overflow-hidden rounded-lg border border-input/20 shadow-xs transition duration-200 ease-out",
+    "group flex h-10 items-center overflow-hidden rounded-lg border border-[var(--fg)]/20 shadow-xs transition duration-200 ease-out",
     "relative focus-within:ring-4 group-invalid:focus-within:border-danger group-invalid:focus-within:ring-danger/20",
     "[&>[role=progressbar]:first-child]:ml-2.5 [&>[role=progressbar]:last-child]:mr-2.5",
     "**:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:[button]:shrink-0",
@@ -111,15 +114,17 @@ const fieldGroupStyles = tv({
 
 const FieldGroup = ({ className, ...props }: GroupProps) => {
   return (
-    <Group
-      {...props}
-      className={composeRenderProps(className, (className, renderProps) =>
-        fieldGroupStyles({
-          ...renderProps,
-          className,
-        }),
-      )}
-    />
+    <Typography as="div">
+      <Group
+          {...props}
+          className={composeRenderProps(className, (className, renderProps) =>
+              fieldGroupStyles({
+                ...renderProps,
+                className,
+              }),
+          )}
+      />
+    </Typography>
   )
 }
 
