@@ -170,11 +170,11 @@ const SelectYear = ({ state }: { state: CalendarState }) => {
       aria-label="Select year"
       selectedKey={20}
       onSelectionChange={(value) => {
-        // @ts-expect-error
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         state.setFocusedDate(years[Number(value)]?.value)
       }}
     >
-      <Select.Trigger className="h-8 text-xs data-focused:ring-3 group-data-open:ring-3" />
+      <Select.Trigger className="h-8 w-24 text-xs data-focused:ring-3 **:data-[slot=select-value]:inline-block **:data-[slot=select-value]:truncate group-data-open:ring-3" />
       <Select.List className="w-34 min-w-34 max-w-34" popoverClassName="w-34 max-w-34 min-w-34">
         {years.map((year, i) => (
           <Select.Option key={i} id={i} textValue={year.formatted}>
