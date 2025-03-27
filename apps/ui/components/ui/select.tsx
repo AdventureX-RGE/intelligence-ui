@@ -117,7 +117,7 @@ const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
         }),
       )}
     >
-      <div className="flex items-center gap-x-2 flex-1 overflow-hidden">
+      <div className="flex flex-1 items-center gap-x-2 overflow-hidden">
         {props.prefix && <span className="-mr-1">{props.prefix}</span>}
         <Typography>
           <SelectValue
@@ -128,7 +128,7 @@ const SelectTrigger = ({ className, ...props }: SelectTriggerProps) => {
       </div>
       <IconChevronLgDown
         aria-hidden
-        className="size-4 shrink-0 text-muted-fg duration-300 group-disabled:opacity-50 group-data-open:rotate-180 group-data-open:text-fg forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText] ml-2"
+        className="ml-2 size-4 shrink-0 text-muted-fg duration-300 group-disabled:opacity-50 group-data-open:rotate-180 group-data-open:text-fg forced-colors:text-[ButtonText] forced-colors:group-disabled:text-[GrayText]"
       />
     </Button>
   )
