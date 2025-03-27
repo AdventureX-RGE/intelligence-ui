@@ -24,7 +24,7 @@ import { Typography } from "./typography"
 const dropdownItemStyles = tv({
   base: [
     "col-span-full grid grid-cols-[auto_1fr_1.5rem_0.5rem_auto] not-has-data-[slot=dropdown-item-details]:items-center has-data-[slot=dropdown-item-details]:**:data-[slot=checked-icon]:mt-[1.5px] supports-[grid-template-columns:subgrid]:grid-cols-subgrid",
-    "group relative cursor-default select-none rounded-[calc(var(--radius-lg)-1px)] px-[calc(var(--spacing)*2.3)] py-[calc(var(--spacing)*1.3)] forced-color:text-[Highlight] text-base text-fg outline-0 forced-color-adjust-none sm:text-sm/6 forced-colors:text-[LinkText]",
+    "group relative cursor-default select-none rounded-[calc(var(--radius-lg)-1px)] px-[calc(var(--spacing)*2.3)] py-[calc(var(--spacing)*1.3)] forced-color:text-[Highlight] text-sm text-fg outline-0 forced-color-adjust-none sm:text-sm/6 forced-colors:text-[LinkText]",
     "**:data-[slot=avatar]:*:mr-2 **:data-[slot=avatar]:*:size-6 **:data-[slot=avatar]:mr-2 **:data-[slot=avatar]:size-6 sm:**:data-[slot=avatar]:*:size-5 sm:**:data-[slot=avatar]:size-5",
     "data-danger:**:data-[slot=icon]:text-danger/60 **:data-[slot=icon]:size-4 **:data-[slot=icon]:shrink-0 **:data-[slot=icon]:text-muted-fg data-focused:data-danger:**:data-[slot=icon]:text-danger",
     "data-[slot=menu-radio]:*:data-[slot=icon]:size-3 *:data-[slot=icon]:mr-2",
@@ -84,10 +84,16 @@ const DropdownItem = ({ className, ...props }: DropdownItemProps) => {
       {...props}
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
-        <Typography as="div">
+        <>
           {isSelected && <IconCheck className="-mx-0.5 mr-2" data-slot="checked-icon" />}
-          {typeof children === "string" ? <DropdownLabel>{children}</DropdownLabel> : children}
-        </Typography>
+          {typeof children === "string" ? (
+            <Typography>
+              <DropdownLabel>{children}</DropdownLabel>
+            </Typography>
+          ) : (
+            children
+          )}
+        </>
       ))}
     </ListBoxItemPrimitive>
   )
@@ -117,10 +123,10 @@ const DropdownItemDetails = ({
       {...restProps}
     >
       {label && (
-        <Typography as="div">
+        <Typography>
           <Text
             slot={slot ?? "label"}
-            className={cn("font-medium sm:text-sm", classNames?.label)}
+            className={cn("font-medium", classNames?.label)}
             {...restProps}
           >
             {label}
@@ -128,7 +134,7 @@ const DropdownItemDetails = ({
         </Typography>
       )}
       {description && (
-        <Typography as="div">
+        <Typography>
           <Text
             slot={slot ?? "description"}
             className={cn("text-muted-fg text-xs", classNames?.description)}
@@ -148,9 +154,7 @@ interface DropdownLabelProps extends TextProps {
 }
 
 const DropdownLabel = ({ className, ref, ...props }: DropdownLabelProps) => (
-  <Typography as="div">
-    <Text slot="label" ref={ref} className={cn("col-start-2", className)} {...props} />
-  </Typography>
+  <Text slot="label" ref={ref} className={cn("col-start-2", className)} {...props} />
 )
 
 const DropdownSeparator = ({ className, ...props }: SeparatorProps) => (
