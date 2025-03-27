@@ -124,13 +124,13 @@ export function Navbar() {
                       onPress={() => setOpen((open: boolean) => !open)}
                       size="small"
                       intent="outline"
-                      className="h-9"
+                      className="h-9 items-center"
                     >
-                      <IconSearch />
-
-                      <span className="text-muted-fg">Search...</span>
-
-                      <Keyboard className="-mr-1" keys="⌘K" />
+                      <div className="font-patika-medium text-[1rem] leading-[1.5rem] flex items-center gap-2">
+                        <IconSearch className="size-4" />
+                        <span className="text-muted-fg">Search...</span>
+                        <Keyboard keys={["⌘", "K"]} className="-mr-1" />
+                      </div>
                     </Button>
                     <ThemeSwitcher />
 
