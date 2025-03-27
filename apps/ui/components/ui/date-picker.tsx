@@ -19,6 +19,7 @@ import { Description, FieldError, FieldGroup, Label } from "./field"
 import { Popover } from "./popover"
 import { composeTailwindRenderProps } from "./primitive"
 import { RangeCalendar } from "./range-calendar"
+import { Typography } from "./typography"
 
 interface DatePickerOverlayProps
   extends Omit<DialogProps, "children" | "className" | "style">,
@@ -78,6 +79,8 @@ interface DatePickerProps<T extends DateValue> extends DatePickerPrimitiveProps<
   label?: string
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
+  leftDescription?: React.ReactNode
+  rightDescription?: React.ReactNode
 }
 
 const DatePicker = <T extends DateValue>({
@@ -85,20 +88,39 @@ const DatePicker = <T extends DateValue>({
   className,
   description,
   errorMessage,
+  leftDescription,
+  rightDescription,
   ...props
 }: DatePickerProps<T>) => {
   return (
     <DatePickerPrimitive
       {...props}
-      className={composeTailwindRenderProps(className, "group/date-picker flex flex-col gap-y-1")}
+      className={composeTailwindRenderProps(className, "group flex w-full flex-col gap-y-1")}
     >
-      {label && <Label isRequired={props.isRequired}>{label}</Label>}
-      <FieldGroup className="min-w-40">
+      {label && 
+        <Typography as="div">
+          <Label isRequired={props.isRequired}>{label}</Label>
+        </Typography>
+      }
+      <FieldGroup className="min-w-40 h-10">
         <DateInput className="w-full px-2 text-base sm:text-sm" />
         <DatePickerIcon />
       </FieldGroup>
-      {description && <Description>{description}</Description>}
-      <FieldError>{errorMessage}</FieldError>
+      {description && 
+        <Typography as="div">
+          <Description>{description}</Description>
+        </Typography>
+      }
+      
+      {(leftDescription || errorMessage || rightDescription) && (
+        <Typography as="div">
+          <div className="mt-1 flex justify-between text-sm text-muted-fg">
+            <div>{errorMessage ? <FieldError>{errorMessage}</FieldError> : leftDescription}</div>
+            <div>{rightDescription}</div>
+          </div>
+        </Typography>
+      )}
+      
       <DatePickerOverlay />
     </DatePickerPrimitive>
   )

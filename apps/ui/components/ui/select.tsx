@@ -26,6 +26,7 @@ import { Description, FieldError, Label } from "./field"
 import { ListBox } from "./list-box"
 import { PopoverContent } from "./popover"
 import { composeTailwindRenderProps, focusStyles } from "./primitive"
+import { Typography } from "./typography"
 
 const selectTriggerStyles = tv({
   extend: focusStyles,
@@ -47,6 +48,8 @@ interface SelectProps<T extends object> extends SelectPrimitiveProps<T> {
   errorMessage?: string | ((validation: ValidationResult) => string)
   items?: Iterable<T>
   className?: string
+  leftDescription?: React.ReactNode
+  rightDescription?: React.ReactNode
 }
 
 const Select = <T extends object>({
@@ -54,19 +57,37 @@ const Select = <T extends object>({
   description,
   errorMessage,
   className,
+  leftDescription,
+  rightDescription,
   ...props
 }: SelectProps<T>) => {
   return (
     <SelectPrimitive
       {...props}
-      className={composeTailwindRenderProps(className, "group flex w-full flex-col gap-y-1.5")}
+      className={composeTailwindRenderProps(className, "group flex w-full flex-col gap-y-1")}
     >
       {(values) => (
         <>
-          {label && <Label>{label}</Label>}
+          {label && 
+            <Typography as="div">
+              <Label isRequired={props.isRequired}>{label}</Label>
+            </Typography>
+          }
           {typeof props.children === "function" ? props.children(values) : props.children}
-          {description && <Description>{description}</Description>}
-          <FieldError>{errorMessage}</FieldError>
+          {description && 
+            <Typography as="div">
+              <Description>{description}</Description>
+            </Typography>
+          }
+          
+          {(leftDescription || errorMessage || rightDescription) && (
+            <Typography as="div">
+              <div className="mt-1 flex justify-between text-sm text-muted-fg">
+                <div>{errorMessage ? <FieldError>{errorMessage}</FieldError> : leftDescription}</div>
+                <div>{rightDescription}</div>
+              </div>
+            </Typography>
+          )}
         </>
       )}
     </SelectPrimitive>
