@@ -47,10 +47,12 @@ interface ExtendedLabelProps extends LabelProps {
 
 const Label = ({ className, isRequired, ...props }: ExtendedLabelProps) => {
   return (
-    <LabelPrimitive {...props} className={label({ className })}>
-      {props.children}
-      {isRequired && <span className="-left-2 absolute top-0 text-danger">*</span>}
-    </LabelPrimitive>
+    <Typography as="div">
+      <LabelPrimitive {...props} className={label({ className })}>
+        {props.children}
+        {isRequired && <span className="-left-2 absolute top-0 text-danger">*</span>}
+      </LabelPrimitive>
+    </Typography>
   )
 }
 

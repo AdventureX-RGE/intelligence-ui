@@ -119,7 +119,8 @@ const SelectionboxItem = ({ icon: Icon, className, ...props }: SelectionboxItemP
       className={composeRenderProps(className, (className, renderProps) => {
         return choiceboxItemStyles({
           isSelected: renderProps.isSelected,
-          isHoveredOrFocused: (!renderProps.isSelected && (renderProps.isHovered || renderProps.isFocusVisible)),
+          isHoveredOrFocused:
+            !renderProps.isSelected && (renderProps.isHovered || renderProps.isFocusVisible),
           isDisabled: renderProps.isDisabled,
           className,
         })

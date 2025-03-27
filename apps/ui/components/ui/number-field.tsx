@@ -41,6 +41,7 @@ interface NumberFieldProps extends NumberFieldPrimitiveProps {
   description?: string
   placeholder?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
+  isRequired?: boolean
 }
 
 const NumberField = ({
@@ -54,7 +55,7 @@ const NumberField = ({
   const isMobile = useMediaQuery("(max-width: 768px)")
   return (
     <NumberFieldPrimitive {...props} className={composeTailwindRenderProps(className, base())}>
-      {label && <Label>{label}</Label>}
+      {label && <Label isRequired={props.isRequired}>{label}</Label>}
       <FieldGroup className="overflow-hidden">
         {(renderProps) => (
           <>

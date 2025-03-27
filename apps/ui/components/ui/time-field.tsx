@@ -18,6 +18,7 @@ interface TimeFieldProps<T extends TimeValue> extends TimeFieldPrimitiveProps<T>
   errorMessage?: string | ((validation: ValidationResult) => string)
   prefix?: React.ReactNode
   suffix?: React.ReactNode
+  isRequired?: boolean
 }
 
 const timeFieldStyles = tv({
@@ -38,7 +39,7 @@ const TimeField = <T extends TimeValue>({
       {...props}
       className={composeTailwindRenderProps(className, "group/time-field flex flex-col gap-y-1")}
     >
-      {label && <Label>{label}</Label>}
+      {label && <Label isRequired={props.isRequired}>{label}</Label>}
       <FieldGroup>
         {prefix && typeof prefix === "string" ? (
           <span className="ml-2 text-muted-fg">{prefix}</span>

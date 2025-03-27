@@ -17,6 +17,7 @@ interface RadioGroupProps extends Omit<RadioGroupPrimitiveProps, "children"> {
   description?: string
   errorMessage?: string | ((validation: ValidationResult) => string)
   ref?: React.Ref<HTMLDivElement>
+  isRequired?: boolean
 }
 
 const RadioGroup = ({
@@ -33,7 +34,7 @@ const RadioGroup = ({
       {...props}
       className={composeTailwindRenderProps(props.className, "group flex flex-col gap-2")}
     >
-      {label && <Label>{label}</Label>}
+      {label && <Label isRequired={props.isRequired}>{label}</Label>}
       <div className="flex select-none gap-2 group-data-[orientation=vertical]:flex-col group-data-[orientation=horizontal]:flex-wrap group-data-[orientation=horizontal]:gap-2 sm:group-data-[orientation=horizontal]:gap-4">
         {children}
       </div>

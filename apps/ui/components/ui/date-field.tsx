@@ -19,6 +19,7 @@ interface DateFieldProps<T extends DateValue> extends DateFieldPrimitiveProps<T>
   errorMessage?: string | ((validation: ValidationResult) => string)
   prefix?: React.ReactNode
   suffix?: React.ReactNode
+  isRequired?: boolean
 }
 
 const DateField = <T extends DateValue>({
