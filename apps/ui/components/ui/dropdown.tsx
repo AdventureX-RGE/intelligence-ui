@@ -117,7 +117,7 @@ const DropdownItemDetails = ({
       {...restProps}
     >
       {label && (
-        <Typography variant="body">
+        <Typography variant="body" as="div">
           <Text
             slot={slot ?? "label"}
             className={cn("font-medium sm:text-sm", classNames?.label)}
@@ -128,7 +128,7 @@ const DropdownItemDetails = ({
         </Typography>
       )}
       {description && (
-        <Typography variant="note">
+        <Typography variant="note" as="div">
           <Text
             slot={slot ?? "description"}
             className={cn("text-muted-fg text-xs", classNames?.description)}
@@ -148,7 +148,7 @@ interface DropdownLabelProps extends TextProps {
 }
 
 const DropdownLabel = ({ className, ref, ...props }: DropdownLabelProps) => (
-  <Typography variant="body" className="!text-sm">
+  <Typography variant="body" className="!text-sm" as="div">
     <Text slot="label" ref={ref} className={cn("col-start-2", className)} {...props} />
   </Typography>
 )
