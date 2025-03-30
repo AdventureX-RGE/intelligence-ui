@@ -27,7 +27,7 @@ const RangeCalendar = <T extends DateValue>({
 }: RangeCalendarProps<T>) => {
   const now = today(getLocalTimeZone())
   return (
-    <RangeCalendarPrimitive visibleDuration={visibleDuration} {...props}>
+    <RangeCalendarPrimitive visibleDuration={visibleDuration} {...props} className={className}>
       <CalendarHeader isRange />
       <div className="flex snap-x items-start justify-stretch gap-6 overflow-auto sm:gap-10">
         {Array.from({ length: visibleDuration?.months ?? 1 }).map((_, index) => {
