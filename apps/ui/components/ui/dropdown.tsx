@@ -1,25 +1,25 @@
-"use client"
+"use client";
 
-import { cn } from "@/utils/classes"
-import { IconCheck } from "justd-icons"
+import { cn } from "@/utils/classes";
+import { IconCheck } from "justd-icons";
 import type {
   ListBoxItemProps,
   SectionProps,
   SeparatorProps,
   TextProps,
-} from "react-aria-components"
+} from "react-aria-components";
 import {
   Collection,
+  composeRenderProps,
   Header,
   ListBoxItem as ListBoxItemPrimitive,
   ListBoxSection,
   Separator,
   Text,
-  composeRenderProps,
-} from "react-aria-components"
-import { tv } from "tailwind-variants"
-import { Keyboard } from "./keyboard"
-import { Typography } from "./typography"
+} from "react-aria-components";
+import { tv } from "tailwind-variants";
+import { Keyboard } from "./keyboard";
+import { Typography } from "./typography";
 
 const dropdownItemStyles = tv({
   base: [
@@ -36,7 +36,8 @@ const dropdownItemStyles = tv({
       true: "text-muted-fg forced-colors:text-[GrayText]",
     },
     isSelected: {
-      true: "**:data-[slot=avatar]:*:hidden **:data-[slot=avatar]:hidden **:data-[slot=icon]:hidden",
+      true:
+        "**:data-[slot=avatar]:*:hidden **:data-[slot=avatar]:hidden **:data-[slot=icon]:hidden",
     },
     isFocused: {
       false: "data-danger:text-danger",
@@ -48,58 +49,66 @@ const dropdownItemStyles = tv({
       ],
     },
   },
-})
+});
 
 const dropdownSectionStyles = tv({
   slots: {
     section: "col-span-full grid grid-cols-[auto_1fr]",
-    header: "col-span-full px-2.5 py-1 font-medium text-muted-fg text-sm sm:text-xs",
+    header:
+      "col-span-full px-2.5 py-1 font-medium text-muted-fg text-sm sm:text-xs",
   },
-})
+});
 
-const { section, header } = dropdownSectionStyles()
+const { section, header } = dropdownSectionStyles();
 
 interface DropdownSectionProps<T> extends SectionProps<T> {
-  title?: string
+  title?: string;
 }
 
-const DropdownSection = <T extends object>({ className, ...props }: DropdownSectionProps<T>) => {
+const DropdownSection = <T extends object>(
+  { className, ...props }: DropdownSectionProps<T>,
+) => {
   return (
     <ListBoxSection className={section({ className })}>
       {"title" in props && <Header className={header()}>{props.title}</Header>}
       <Collection items={props.items}>{props.children}</Collection>
     </ListBoxSection>
-  )
-}
+  );
+};
 
-type DropdownItemProps = ListBoxItemProps
+type DropdownItemProps = ListBoxItemProps;
 
 const DropdownItem = ({ className, ...props }: DropdownItemProps) => {
   return (
     <ListBoxItemPrimitive
-      textValue={typeof props.children === "string" ? props.children : props.textValue}
+      textValue={typeof props.children === "string"
+        ? props.children
+        : props.textValue}
       className={composeRenderProps(className, (className, renderProps) =>
-        dropdownItemStyles({ ...renderProps, className }),
-      )}
+        dropdownItemStyles({ ...renderProps, className }))}
       {...props}
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
-          {isSelected && <IconCheck className="-mx-0.5 mr-2" data-slot="checked-icon" />}
-          {typeof children === "string" ? <DropdownLabel>{children}</DropdownLabel> : children}
+          {typeof children === "string"
+            ? <DropdownLabel>{children}</DropdownLabel>
+            : children}
+          {isSelected && (
+            <IconCheck className="ml-auto mr-2" data-slot="checked-icon" />
+          )}
         </>
       ))}
     </ListBoxItemPrimitive>
-  )
-}
+  );
+};
 
 interface DropdownItemDetailProps extends TextProps {
-  label?: TextProps["children"]
-  description?: TextProps["children"]
+  label?: TextProps["children"];
+  description?: TextProps["children"];
   classNames?: {
-    label?: TextProps["className"]
-    description?: TextProps["className"]
-  }
+    label?: TextProps["className"];
+    description?: TextProps["className"];
+  };
 }
 
 const DropdownItemDetails = ({
@@ -108,7 +117,7 @@ const DropdownItemDetails = ({
   classNames,
   ...props
 }: DropdownItemDetailProps) => {
-  const { slot, children, title, ...restProps } = props
+  const { slot, children, title, ...restProps } = props;
 
   return (
     <div
@@ -140,18 +149,23 @@ const DropdownItemDetails = ({
       )}
       {!title && children}
     </div>
-  )
-}
+  );
+};
 
 interface DropdownLabelProps extends TextProps {
-  ref?: React.Ref<HTMLDivElement>
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 const DropdownLabel = ({ className, ref, ...props }: DropdownLabelProps) => (
   <Typography variant="body" className="!text-sm" as="div">
-    <Text slot="label" ref={ref} className={cn("col-start-2", className)} {...props} />
+    <Text
+      slot="label"
+      ref={ref}
+      className={cn("col-start-2", className)}
+      {...props}
+    />
   </Typography>
-)
+);
 
 const DropdownSeparator = ({ className, ...props }: SeparatorProps) => (
   <Separator
@@ -159,24 +173,33 @@ const DropdownSeparator = ({ className, ...props }: SeparatorProps) => (
     className={cn("-mx-1 col-span-full my-1 h-px bg-border", className)}
     {...props}
   />
-)
+);
 
-const DropdownKeyboard = ({ className, ...props }: React.ComponentProps<typeof Keyboard>) => {
-  return <Keyboard className={cn("absolute right-2 pl-2", className)} {...props} />
-}
+const DropdownKeyboard = (
+  { className, ...props }: React.ComponentProps<typeof Keyboard>,
+) => {
+  return (
+    <Keyboard className={cn("absolute right-2 pl-2", className)} {...props} />
+  );
+};
 
 /**
  * Note: This is not exposed component, but it's used in other components to render dropdowns.
  * @internal
  */
-export type { DropdownSectionProps, DropdownLabelProps, DropdownItemProps, DropdownItemDetailProps }
+export type {
+  DropdownItemDetailProps,
+  DropdownItemProps,
+  DropdownLabelProps,
+  DropdownSectionProps,
+};
 export {
-  DropdownSeparator,
   DropdownItem,
-  DropdownLabel,
-  DropdownKeyboard,
-  dropdownItemStyles,
   DropdownItemDetails,
+  dropdownItemStyles,
+  DropdownKeyboard,
+  DropdownLabel,
   DropdownSection,
   dropdownSectionStyles,
-}
+  DropdownSeparator,
+};
