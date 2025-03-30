@@ -126,7 +126,7 @@ export function Navbar() {
                       intent="outline"
                       className="h-9 items-center"
                     >
-                      <div className="font-patika-medium text-[1rem] leading-[1.5rem] flex items-center gap-2">
+                      <div className="flex items-center gap-2 font-patika-medium text-[1rem] leading-[1.5rem]">
                         <IconSearch className="size-4" />
                         <span className="text-muted-fg">Search...</span>
                         <Keyboard keys={["⌘", "K"]} className="-mr-1" />

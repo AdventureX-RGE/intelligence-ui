@@ -20,7 +20,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { composeTailwindRenderProps, focusStyles } from "./primitive"
-import { Typography } from "./typography";
+import { Typography } from "./typography"
 
 interface FieldProps {
   label?: string
@@ -116,13 +116,13 @@ const FieldGroup = ({ className, ...props }: GroupProps) => {
   return (
     <Typography as="div">
       <Group
-          {...props}
-          className={composeRenderProps(className, (className, renderProps) =>
-              fieldGroupStyles({
-                ...renderProps,
-                className,
-              }),
-          )}
+        {...props}
+        className={composeRenderProps(className, (className, renderProps) =>
+          fieldGroupStyles({
+            ...renderProps,
+            className,
+          }),
+        )}
       />
     </Typography>
   )
