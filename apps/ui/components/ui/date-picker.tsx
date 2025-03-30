@@ -97,30 +97,30 @@ const DatePicker = <T extends DateValue>({
       {...props}
       className={composeTailwindRenderProps(className, "group flex w-full flex-col gap-y-1")}
     >
-      {label && 
+      {label && (
         <Typography as="div">
           <Label isRequired={props.isRequired}>{label}</Label>
         </Typography>
-      }
-      <FieldGroup className="min-w-40 h-10">
+      )}
+      <FieldGroup className="h-10 min-w-40">
         <DateInput className="w-full px-2 text-base sm:text-sm" />
         <DatePickerIcon />
       </FieldGroup>
-      {description && 
+      {description && (
         <Typography as="div">
           <Description>{description}</Description>
         </Typography>
-      }
-      
+      )}
+
       {(leftDescription || errorMessage || rightDescription) && (
         <Typography as="div">
-          <div className="mt-1 flex justify-between text-sm text-muted-fg">
+          <div className="mt-1 flex justify-between text-muted-fg text-sm">
             <div>{errorMessage ? <FieldError>{errorMessage}</FieldError> : leftDescription}</div>
             <div>{rightDescription}</div>
           </div>
         </Typography>
       )}
-      
+
       <DatePickerOverlay />
     </DatePickerPrimitive>
   )

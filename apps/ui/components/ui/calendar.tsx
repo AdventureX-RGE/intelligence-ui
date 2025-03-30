@@ -170,8 +170,7 @@ const SelectYear = ({ state }: { state: CalendarState }) => {
       aria-label="Select year"
       selectedKey={20}
       onSelectionChange={(value) => {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        state.setFocusedDate(years[Number(value)]?.value)
+        state.setFocusedDate(years[Number(value)]?.value!)
       }}
     >
       <Select.Trigger className="h-8 w-24 text-xs data-focused:ring-3 **:data-[slot=select-value]:inline-block **:data-[slot=select-value]:truncate group-data-open:ring-3" />
@@ -199,4 +198,4 @@ const CalendarGridHeader = () => {
 }
 
 export type { CalendarProps }
-export { Calendar, CalendarHeader, CalendarGridHeader }
+export { Calendar, CalendarGridHeader, CalendarHeader }

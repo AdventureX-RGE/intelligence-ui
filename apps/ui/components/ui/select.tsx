@@ -68,22 +68,24 @@ const Select = <T extends object>({
     >
       {(values) => (
         <>
-          {label && 
+          {label && (
             <Typography as="div">
               <Label isRequired={props.isRequired}>{label}</Label>
             </Typography>
-          }
+          )}
           {typeof props.children === "function" ? props.children(values) : props.children}
-          {description && 
+          {description && (
             <Typography as="div">
               <Description>{description}</Description>
             </Typography>
-          }
-          
+          )}
+
           {(leftDescription || errorMessage || rightDescription) && (
             <Typography as="div">
-              <div className="mt-1 flex justify-between text-sm text-muted-fg">
-                <div>{errorMessage ? <FieldError>{errorMessage}</FieldError> : leftDescription}</div>
+              <div className="mt-1 flex justify-between text-muted-fg text-sm">
+                <div>
+                  {errorMessage ? <FieldError>{errorMessage}</FieldError> : leftDescription}
+                </div>
                 <div>{rightDescription}</div>
               </div>
             </Typography>

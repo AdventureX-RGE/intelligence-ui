@@ -85,8 +85,8 @@ const DropdownItem = ({ className, ...props }: DropdownItemProps) => {
     >
       {composeRenderProps(props.children, (children, { isSelected }) => (
         <>
-          {isSelected && <IconCheck className="-mx-0.5 mr-2" data-slot="checked-icon" />}
           {typeof children === "string" ? <DropdownLabel>{children}</DropdownLabel> : children}
+          {isSelected && <IconCheck className="mr-2 ml-auto" data-slot="checked-icon" />}
         </>
       ))}
     </ListBoxItemPrimitive>
@@ -169,14 +169,14 @@ const DropdownKeyboard = ({ className, ...props }: React.ComponentProps<typeof K
  * Note: This is not exposed component, but it's used in other components to render dropdowns.
  * @internal
  */
-export type { DropdownSectionProps, DropdownLabelProps, DropdownItemProps, DropdownItemDetailProps }
+export type { DropdownItemDetailProps, DropdownItemProps, DropdownLabelProps, DropdownSectionProps }
 export {
-  DropdownSeparator,
   DropdownItem,
-  DropdownLabel,
-  DropdownKeyboard,
-  dropdownItemStyles,
   DropdownItemDetails,
+  dropdownItemStyles,
+  DropdownKeyboard,
+  DropdownLabel,
   DropdownSection,
   dropdownSectionStyles,
+  DropdownSeparator,
 }

@@ -27,7 +27,13 @@ type TypographyProps = {
   as?: "p" | "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "span" | "div"
 }
 
-const Typography = ({ className, variant, as: Tag = "div", children, ...props }: TypographyProps) => {
+const Typography = ({
+  className,
+  variant,
+  as: Tag = "div",
+  children,
+  ...props
+}: TypographyProps) => {
   return (
     <Tag className={typographyStyles({ variant, className })} {...props}>
       {children}

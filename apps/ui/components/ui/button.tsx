@@ -9,7 +9,7 @@ import {
 import { tv } from "tailwind-variants"
 
 import { focusButtonStyles } from "./primitive"
-import { Typography } from "./typography";
+import { Typography } from "./typography"
 
 const buttonStyles = tv({
   extend: focusButtonStyles,
