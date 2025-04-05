@@ -83,29 +83,32 @@ const Checkbox = ({ className, ...props }: CheckboxProps) => {
       )}
     >
       {({ isSelected, isIndeterminate, ...renderProps }) => (
-        <div className={cn("flex gap-x-2", props.description ? "items-start" : "items-center")}>
-          <div
-            className={boxStyles({
-              ...renderProps,
-              isSelected: isSelected || isIndeterminate,
-            })}
-          >
-            {isIndeterminate ? <IconMinus /> : isSelected ? <IconCheck /> : null}
-          </div>
+          <div className="flex items-start gap-x-2">
+            <div
+                className={cn(
+                    "mt-[2px]",
+                    boxStyles({
+                      ...renderProps,
+                      isSelected: isSelected || isIndeterminate,
+                    })
+                )}
+            >
+              {isIndeterminate ? <IconMinus /> : isSelected ? <IconCheck /> : null}
+            </div>
 
-          <div className="flex flex-col gap-1">
-            <>
-              {props.label ? (
-                <Label className={cn(props.description && "font-normal text-sm/4")}>
-                  {props.label}
-                </Label>
-              ) : (
-                (props.children as React.ReactNode)
-              )}
-              {props.description && <Description>{props.description}</Description>}
-            </>
+            <div className="flex flex-col gap-1">
+              <>
+                {props.label ? (
+                    <Label className={cn(props.description && "font-normal text-sm/4")}>
+                      {props.label}
+                    </Label>
+                ) : (
+                    (props.children as React.ReactNode)
+                )}
+                {props.description && <Description>{props.description}</Description>}
+              </>
+            </div>
           </div>
-        </div>
       )}
     </CheckboxPrimitive>
   )
